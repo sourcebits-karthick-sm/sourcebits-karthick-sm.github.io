@@ -750,35 +750,37 @@
       </div>
    </div>
    <div class="white-div"  ng-show="check && count!=21 && !timercheck">
-      <div class="container questions">
-         <div class="row">
-            <div class="width-500">
-               <div class="question-heading-group">
-                  <h1 class="section-heading question">QUESTION</h1>
-                  <p class="ceb-question">{{ques.test.currentQuestion.question}}</p>
-               </div>
-               <div class="row">
-                  <div class="options-margin" ng-repeat="option in ques.test.currentQuestion.options">
-                     <div class="ceb-options" ng-class="{'active': ques.answer == option.option}" ng-click="ques.answer = option.option ; ques.answer1 = option.isCorrect ; ques.isClick()" >
-                     
-                        <span class="sr-only">Option {{$index+1}} {{option.option}}</span>
-                        <span class="option-text">{{option.option}}</span>
-                        <input class="pull-right" type="radio" name="optradio" ng-model="ques.answer" ng-value="option.option" ng-model="ques.answer.checked" >
-                        <label>
-                        </label>
-                     </div>
-                  </div>
-                  <div class="col-xs-12 options-margin" ng-hide="count==20">
-                     <button class="btn btn-ceb" ng-click="ques.showNextQuestion(ques.answer,ques.answer1)">NEXT</button>
+         <div class="container questions">
+        <div class="row">
+           <div class="width-500">
+              <div class="question-heading-group">
+                 <h1 class="section-heading question">QUESTION</h1>
+                 <p class="ceb-question">{{ques.test.currentQuestion.question}}</p>
+              </div>
+              <div class="row">
+                 <div class="options-margin" ng-repeat="option in ques.test.currentQuestion.options">
+                    <div class="ceb-options" ng-class="{'active': ques.answer == option.option}" ng-click="ques.answer = option.option ; ques.answer1 = option.isCorrect ; ques.isClick()" >
                     
-                  </div>
-                  <div class="col-xs-12 options-margin" ng-show="count==20">
-                     <button class="btn btn-ceb" ng-click="ques.showNextQuestion()">FINISH</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
+                       <span class="sr-only">Option {{$index+1}} {{option.option}}</span>
+                       <span class="option-text">{{option.option}}</span>
+                       <input class="pull-right" type="radio" name="optradio" ng-model="ques.answer" ng-value="option.option" ng-model="ques.answer.checked" >
+                       <label>
+                       </label>
+                    </div>
+                 </div>
+                 <div class="col-xs-12 options-margin" ng-hide="count==20">
+                    <button class="btn btn-ceb" ng-click="ques.showNextQuestion(ques.answer,ques.answer1);ques.answer=''">NEXT</button>
+                   
+                 </div>
+                 <div class="col-xs-12 options-margin" ng-show="count==20">
+                    <button class="btn btn-ceb" ng-click="ques.showNextQuestion()">FINISH</button>
+                 </div>
+              </div>
+           </div>
+        </div>
+         </div>      
+              
+      </div>     
    </div>
    <div class="exit-page"  ng-show="check && count==21 && InstructionPage && !InstructionPage1" >
       <div class="container questions">

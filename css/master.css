@@ -1540,6 +1540,19 @@ dd {
   .dl-horizontal dd {
     margin-left: 180px; } }
 
+@media (max-width: 499px) {
+  
+    thead > tr > th,
+   tbody > tr > th,
+   tfoot > tr > th,
+   thead > tr > td,
+   tbody > tr > td,
+   tfoot > tr > td {
+       border: none;
+       color: #FBFBFB;
+       
+       width:15px;
+   }
 abbr[title],
 abbr[data-original-title] {
   cursor: help;
@@ -7278,7 +7291,10 @@ header {
   .exit-button {
     margin-top: 35px; }
   .tablet-margin {
-    margin-top: 222px !important; } }
+    margin-top: 222px !important; }
+  body {
+    background: url("../images/ceb-background.jpg") no-repeat center center fixed;
+    background-size: cover; } }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width: 992px) {
