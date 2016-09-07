@@ -2,7 +2,7 @@
 App ceb
 ==================================================================*/
 'use strict';
-angular.module('ceb', ['ui.router','ui.bootstrap','duScroll','angularMoment'])
+angular.module('ceb', ['ui.router','ui.bootstrap','ngAnimate','duScroll','angularMoment'])
 
 .config(['$stateProvider', "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
 
@@ -81,7 +81,7 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
     $scope.InstructionPage = false;
     $scope.InstructionPage1 = false;
     $scope.startInstruction = function() {
-        $document.find('body').css('background','none');
+        $document.find('body').css('background','none')
         $scope.InstructionPage = true;
         $scope.InstructionPage1 = false;
         window.scrollTo(0, 0);
@@ -316,8 +316,7 @@ $scope.click = false;
 
             vm.display = minutes + ":" + seconds;
             if (vm.display == "00:00") {
-                $document.find('body').css('background','');
-                $scope.timercheck = true;
+                $scope.timerht = true;
                 console.log("Timer check:" + $scope.timercheck);
             }
             vm.percent = (timer * 100) / duration;
