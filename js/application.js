@@ -2,7 +2,7 @@
 App ceb
 ==================================================================*/
 'use strict';
-angular.module('ceb', ['ui.router','ui.bootstrap','ngAnimate','duScroll','angularMoment'])
+angular.module('ceb', ['ui.router','ui.bootstrap','duScroll','angularMoment'])
 
 .config(['$stateProvider', "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
 
@@ -39,6 +39,7 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
     var vm = this;
     vm.open = false;
     vm.tab = true;
+    vm.showOverlay = false;
     vm.questionProgressPercent = 0;
     var someElement = angular.element(document.getElementById('sticky'));
     vm.openOptions = function() {
@@ -53,7 +54,6 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
         // return;
         vm.open = false;
     }
-
 
     $http.get("images/data/testdata.json")
         .then(function(response) {
@@ -81,7 +81,7 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
     $scope.InstructionPage = false;
     $scope.InstructionPage1 = false;
     $scope.startInstruction = function() {
-        $document.find('body').css('background','none')
+        $document.find('body').css('background','none');
         $scope.InstructionPage = true;
         $scope.InstructionPage1 = false;
         window.scrollTo(0, 0);
@@ -115,7 +115,7 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
     $scope.startEvaluation = function() {
         // $document.find('body').css('background','none')
         $scope.check = true;
-        var timeLimit = 60 * 10;
+        var timeLimit = 2000 * 1;
         startTimer(timeLimit);
         deviceType();
         $scope.sendSessionId();
@@ -179,6 +179,8 @@ $scope.click = false;
     }
     $scope.NewTime1 = vm.display;
     vm.showNextQuestion = function(answer,option) {
+        // To hide the answers
+        vm.showOverlay = false;
             window.scrollTo(0, 0);
             if($scope.count>19){
                 $document.find('body').css('background','');
@@ -316,7 +318,8 @@ $scope.click = false;
 
             vm.display = minutes + ":" + seconds;
             if (vm.display == "00:00") {
-                $scope.timerht = true;
+                $document.find('body').css('background','');
+                $scope.timercheck = true;
                 console.log("Timer check:" + $scope.timercheck);
             }
             vm.percent = (timer * 100) / duration;

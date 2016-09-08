@@ -291,20 +291,7 @@ table {
 td,
 th {
   padding: 0; }
-  
-@media (max-width: 499px) {
-  
-    thead > tr > th,
-   tbody > tr > th,
-   tfoot > tr > th,
-   thead > tr > td,
-   tbody > tr > td,
-   tfoot > tr > td {
-       border: none;
-       color: #FBFBFB;
-       
-       width:15px;
-   }
+
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
   *,
@@ -6447,15 +6434,8 @@ button.close {
 SMACSS: LAYOUT - COMMON
 -------------------------------------------------*/
 body {
-  background-color: #fff;
+  background-color: #23232b !important;
   font-family: 'proxima_regular';
-  background: url("../images/ceb-background.jpg") no-repeat center center fixed;
-  background-size: cover; }
-
-.remove-body-bg {
-  background: #fff; }
-
-.add-body-bg {
   background: url("../images/ceb-background.jpg") no-repeat center center fixed;
   background-size: cover; }
 
@@ -6517,8 +6497,8 @@ table.time {
   top: -20px;
   margin-bottom: -20px; }
   table.time td:not(.fix) {
-    background-image: linear-gradient(to bottom, transparent, transparent 40%, #23232b 40%, #23232b);
-    background-image: -moz-linear-gradient(to bottom, transparent, transparent 40%, #23232b 40%, #23232b); }
+    background-image: linear-gradient(to bottom, transparent, transparent 40%, #fff 40%, #fff);
+    background-image: -moz-linear-gradient(to bottom, transparent, transparent 40%, #fff 40%, #fff); }
   table.time .fix {
     text-align: center;
     width: 150px;
@@ -6704,6 +6684,90 @@ h1.section-heading.question {
   background-color: white;
   padding-bottom: 50px;
   font-size: 16px; }
+
+.white-div-answers {
+  position: absolute;
+  z-index: 999;
+  height: 100vh;
+  transition: all 2s; }
+
+.white-div-answers:target {
+  top: 0; }
+
+.pull-ansers {
+  animation: pull-down-answers 3s; }
+
+.push-answers {
+  animation: push-answers-up 3s; }
+
+@keyframes pull-down-answers
+    0%
+        top:-302px
+        opacity: 0.2
+    100%
+        top:0
+        opacity: 1
+
+
+@keyframes push-answers-up
+    0%
+        top:0px
+        opacity: 1
+    100%
+        top:-302px
+        opacity: 0.2
+
+
+
+.answers-top {
+  top: -302px;
+  position: absolute; }
+
+.questions-div {
+  width: 100%;
+  background-color: white;
+  font-size: 16px;
+  padding: 15px 0 15px; }
+
+.show-answer-overlay {
+  outline: none;
+  margin-top: 45px;
+  font-size: 16px;
+  color: white;
+  height: 44px;
+  border-radius: 0px;
+  font-family: 'proxima_semibold';
+  border: 0px;
+  /* For browsers that do not support gradients */
+  /* For Safari 5.1 to 6.0 */
+  /* For Opera 11.1 to 12.0 */
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#00c8f3, #0097f3);
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.15), 0px 3px 8px 0px rgba(0, 199, 243, 0.3); }
+  .show-answer-overlay .saved-for-later {
+    color: #00adee;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* For browsers that do not support gradients */
+    /* For Safari 5.1 to 6.0 */
+    /* For Opera 11.1 to 12.0 */
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, #f3f3f3);
+    /* Standard syntax */
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2); }
+
+.hide-answer-overlay {
+  outline: none;
+  font-size: 16px;
+  color: white;
+  margin-top: 45px;
+  height: 44px;
+  border-radius: 0px;
+  font-family: 'proxima_semibold';
+  border: 0px;
+  background: -moz-linear-gradient(#00c8f3, #0097f3);
+  color: #00adee;
+  background: linear-gradient(white, #f3f3f3);
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2); }
 
 .output1 {
   max-width: 510px;
@@ -7082,7 +7146,7 @@ input[type=radio]:not(old):checked + label {
   background: url("/images/answerRadioSelected.png") no-repeat 0 0; }
 
 .ceb-question-progressbar {
-  z-index: 100;
+  z-index: 9999;
   width: 100%;
   height: 30px;
   position: fixed;
