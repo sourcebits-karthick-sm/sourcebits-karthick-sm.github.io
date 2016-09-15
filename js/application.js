@@ -40,6 +40,10 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
     vm.open = false;
     vm.tab = true;
     vm.showOverlay = false;
+    vm.showAnswers = false ;
+    vm.answersOverlay = function(){
+        vm.showAnswers = true;
+    };
     vm.questionProgressPercent = 0;
     var someElement = angular.element(document.getElementById('sticky'));
     vm.openOptions = function() {

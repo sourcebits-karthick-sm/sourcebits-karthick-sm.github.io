@@ -27,43 +27,45 @@
                <h1 class="section-heading question">QUESTION</h1>
                <p class="ceb-question">{{ques.test.currentQuestion.question}}</p>
             </div>
-            <button class="col-xs-2" ng-class="ques.showOverlay ? 'hide-answer-overlay' : 'show-answer-overlay'" ng-click="ques.showOverlay = !ques.showOverlay"> > </button>
+            <button class="col-xs-2" ng-class="ques.showOverlay ? 'hide-answer-overlay' : 'show-answer-overlay'" ng-click="ques.showOverlay = !ques.showOverlay;ques.answersOverlay()"> <span></span> </button>
          </div>
          {{que.showOverlay}}
       </div>
    </div>
    <!-- ./ question -->
    <!-- Answers -->
-       <div ng-class="ques.showOverlay ? 'white-div-answers pull-ansers white-div':'answers-top'" ng-show="check && count!=21 && !timercheck && ques.showOverlay">
-          <div class="container questions">
-             <div class="row">
-                <div class="width-500">
-                   <div class="row">
-                      <div class="options-margin" ng-repeat="option in ques.test.currentQuestion.options">
-                         <div class="ceb-options" ng-class="{'active': ques.answer == option.option}" ng-click="ques.answer = option.option ; ques.answer1 = option.isCorrect ; ques.isClick()" >
-                         
-                            <span class="sr-only">Option {{$index+1}} {{option.option}}</span>
-                            <span class="option-text">{{option.option}}</span>
-                            <input class="pull-right" type="radio" name="optradio" ng-model="ques.answer" ng-value="option.option" ng-model="ques.answer.checked" >
-                            <label>
-                            </label>
-                         </div>
-                      </div>
-                      <div class="col-xs-12 options-margin" ng-hide="count==20">
-                         <button class="btn btn-ceb" ng-click="ques.showNextQuestion(ques.answer,ques.answer1)">NEXT</button>
-                        
-                      </div>
-                      <div class="col-xs-12 options-margin" ng-show="count==20">
-                         <button class="btn btn-ceb" ng-click="ques.showNextQuestion()">FINISH</button>
-                      </div>
-                   </div>
-                </div>
-             </div>
-          </div>
-       </div>
+      <div ng-show="ques.showAnswers">
+         <div ng-class="ques.showOverlay ? 'white-div-answers pull-answers white-div':'white-div-answers push-answers white-div'" ng-show="check && count!=21 && !timercheck">
+            <div class="container questions">
+               <div class="row">
+                  <div class="width-500">
+                     <div class="row">
+                        <div class="options-margin" ng-repeat="option in ques.test.currentQuestion.options">
+                           <div class="ceb-options" ng-class="{'active': ques.answer == option.option}" ng-click="ques.answer = option.option ; ques.answer1 = option.isCorrect ; ques.isClick()" >
+                           
+                              <span class="sr-only">Option {{$index+1}} {{option.option}}</span>
+                              <span class="option-text">{{option.option}}</span>
+                              <input class="pull-right" type="radio" name="optradio" ng-model="ques.answer" ng-value="option.option" ng-model="ques.answer.checked" >
+                              <label>
+                              </label>
+                           </div>
+                        </div>
+                        <div class="col-xs-12 options-margin" ng-hide="count==20">
+                           <button class="btn btn-ceb" ng-click="ques.showNextQuestion(ques.answer,ques.answer1)">NEXT</button>
+                          
+                        </div>
+                        <div class="col-xs-12 options-margin" ng-show="count==20">
+                           <button class="btn btn-ceb" ng-click="ques.showNextQuestion()">FINISH</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>         
+      </div>
    <!-- ./ Answers --> 
    <!-- Instruction wrapper -->
-   <div class="instructions-wrapper" ng-hide="!check && !InstructionPage || InstructionPage1">
+   <div class="instructions-wrapper" ng-hide="!check && !InstructionPage || InstructionPage1 || ques.showOverlay">
       <div class="container instructions">
          <div class="row">
             <div class="width-500" ng-if="ques.test.set == 0" ng-show="check && count!=21 && !timercheck ">
