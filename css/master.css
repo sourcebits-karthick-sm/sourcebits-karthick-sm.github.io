@@ -6715,7 +6715,6 @@ h1.section-heading.question {
   /* Chrome, Safari, Opera */
   animation: push-answers-top 0.5s forwards; }
 
-/* Chrome, Safari, Opera */
 
 /* Standard syntax */
 @keyframes push-answers-top {
