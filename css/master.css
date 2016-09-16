@@ -6574,11 +6574,17 @@ table.time {
 
 .instructions-wrapper {
   width: 100%;
-  background-color: #23232b; }
+  background-color: #23232b;
+  height: 100%;
+  padding-bottom: 30px;
+  overflow: scroll; }
   .instructions-wrapper .instructions p {
     color: white;
     margin: 20px auto;
     line-height: 1.25; }
+
+.add-padding {
+  padding-top: 140px; }
 
 .info-box:nth-child(2) .info-box-content-wrap {
   border-radius: 4px 4px 0 0; }
@@ -6690,23 +6696,22 @@ h1.section-heading.question {
 
 .white-div-answers {
   z-index: 999;
-  height: 100vh; }
+  height: 100vh;
+  padding-top: 140px; }
 
 .pull-answers {
   position: relative;
   /* Chrome, Safari, Opera */
-  animation: pull-down-answers 0.4s forwards; }
+  animation: pull-down-answers 0.5s forwards; }
 
 /* Chrome, Safari, Opera */
 
 /* Standard syntax */
 @keyframes pull-down-answers {
   0% {
-    top: -502px;
-    opacity: 0.4; }
+    top: -502px; }
   100% {
-    top: 0px;
-    opacity: 1; } }
+    top: 0px; } }
 
 .push-answers {
   position: absolute;
@@ -6715,6 +6720,7 @@ h1.section-heading.question {
   /* Chrome, Safari, Opera */
   animation: push-answers-top 0.5s forwards; }
 
+/* Chrome, Safari, Opera */
 
 /* Standard syntax */
 @keyframes push-answers-top {
@@ -6731,7 +6737,7 @@ h1.section-heading.question {
   font-size: 16px;
   padding: 15px 0 15px;
   opacity: 1;
-  position: relative;
+  position: fixed;
   z-index: 999999; }
 
 .show-answer-overlay {

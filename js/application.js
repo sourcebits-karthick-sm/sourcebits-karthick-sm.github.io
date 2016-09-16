@@ -40,7 +40,7 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
     vm.open = false;
     vm.tab = true;
     vm.showOverlay = false;
-    vm.showAnswers = false ;
+    vm.showAnswers = false;
     vm.answersOverlay = function(){
         vm.showAnswers = true;
     };
@@ -119,7 +119,7 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
     $scope.startEvaluation = function() {
         // $document.find('body').css('background','none')
         $scope.check = true;
-        var timeLimit = 2000 * 1;
+        var timeLimit =60 * 10;
         startTimer(timeLimit);
         deviceType();
         $scope.sendSessionId();
@@ -167,9 +167,6 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
         hrs = (hrs < 10) ? "0" + hrs : hrs;
         mins = (mins < 10) ? "0" + mins : mins;
         secs = (secs < 10) ? "0" + secs : secs;
-
-
-
         $scope.finaltime = hrs + ':' + mins + ':' + secs;        
     };
     function store(s) {

@@ -65,7 +65,7 @@
       </div>
    <!-- ./ Answers --> 
    <!-- Instruction wrapper -->
-   <div class="instructions-wrapper" ng-hide="!check && !InstructionPage || InstructionPage1 || ques.showOverlay">
+   <div class="instructions-wrapper" ng-hide="!check && !InstructionPage || InstructionPage1 || ques.showOverlay" ng-class="check ? 'add-padding':''">
       <div class="container instructions">
          <div class="row">
             <div class="width-500" ng-if="ques.test.set == 0" ng-show="check && count!=21 && !timercheck ">
