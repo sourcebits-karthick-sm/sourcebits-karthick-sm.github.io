@@ -94,7 +94,7 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
     $scope.exitAssessment = function() {
         $scope.InstructionPage = true;
         $scope.InstructionPage1 = true;
-        $state.reload();
+         window.location = "/";
         window.scrollTo(0, 0);
     };
 

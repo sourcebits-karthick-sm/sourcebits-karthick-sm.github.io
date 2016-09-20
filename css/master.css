@@ -6447,6 +6447,14 @@ footer {
   max-width: 500px;
   margin: auto; }
 
+.interaction-tab
+tbody > tr > td {
+  width: 15px; }
+
+.customer-interaction
+tbody > tr > td {
+  min-width: 150px; }
+
 /*NAVBAR */
 .navbar-default {
   margin-bottom: 0px;
@@ -6502,7 +6510,7 @@ table.time {
   table.time .fix {
     text-align: center;
     width: 150px;
-    background-image: url(/images/timerLeft.png), url(/images/timerRight.png);
+    background-image: url(../images/timerLeft.png), url(../images/timerRight.png);
     background-position: left bottom, right bottom;
     background-repeat: no-repeat, no-repeat; }
     table.time .fix img {
@@ -7169,14 +7177,14 @@ input[type=radio]:not(old) + label {
   position: relative;
   margin-left: 40px;
   padding-left: 28px;
-  background: url("/images/answerRadioNormal.png") no-repeat 0 0;
+  background: url("../images/answerRadioNormal.png") no-repeat 0 0;
   line-height: 24px; }
 
 input[type=checkbox]:not(old):checked + label {
   background-position: 0 -24px; }
 
 input[type=radio]:not(old):checked + label {
-  background: url("/images/answerRadioSelected.png") no-repeat 0 0; }
+  background: url("../images/answerRadioSelected.png") no-repeat 0 0; }
 
 .ceb-question-progressbar {
   z-index: 9999;
@@ -7361,26 +7369,32 @@ header {
 @media only screen and (min-width: 320px) {
   .tick-img {
     margin-left: 40px;
-    margin-top: 55px; }
+    margin-top: 20px; }
   .exit-button {
-    margin-top: 35px; } }
+    margin-top: 10px; }
+  .tablet-margin {
+    margin-top: 60px; } }
 
 @media only screen and (min-width: 375px) {
   .tick-img {
     margin-left: 60px;
     margin-top: 55px; }
   .exit-button {
-    margin-top: 35px; } }
+    margin-top: 35px; }
+  .tablet-margin {
+    margin-top: 60px; } }
 
 @media only screen and (min-width: 425px) {
   .tick-img {
     margin-left: 90px;
     margin-top: 55px; }
   .exit-button {
-    margin-top: 35px; } }
+    margin-top: 35px; }
+  .tablet-margin {
+    margin-top: 60px; } }
 
 /* Extra Small Devices, Phones */
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 470px) {
   .tick-img {
     margin-left: 125px;
     margin-top: 55px; }
@@ -7388,6 +7402,10 @@ header {
     margin-top: 35px; } }
 
 /* Small Devices, Tablets */
+@media only screen and (min-width: 480px) {
+  .tablet-margin {
+    margin-top: 175px; } }
+
 @media only screen and (min-width: 768px) {
   .tick-img {
     margin-left: 145px;
@@ -7395,7 +7413,10 @@ header {
   .exit-button {
     margin-top: 35px; }
   .tablet-margin {
-    margin-top: 222px !important; } }
+    margin-top: 222px; }
+  body {
+    background: url("../images/ceb-background.jpg") no-repeat center center fixed;
+    background-size: cover; } }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width: 992px) {
@@ -7411,7 +7432,9 @@ header {
     margin-left: 130px;
     margin-top: 55px; }
   .exit-button {
-    margin-top: 35px; } }
+    margin-top: 35px; }
+  .tablet-margin {
+    margin-top: 222px; } }
 
 /*-------------------------------------------------
 SMACSS: LAYOUT - SECTION
