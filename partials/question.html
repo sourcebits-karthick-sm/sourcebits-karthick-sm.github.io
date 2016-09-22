@@ -14,185 +14,276 @@
       <table class="time">
          <tr>
             <td></td>
-            <td class="fix"> <span class="timer-pos" ><img src="/images/timerClock.png" alt="Clock icon">{{ques.display}}</span></td>
+            <td class="fix"> <span class="timer-pos" ><img src="/images/timerClock.png" alt="Clock icon"> {{ques.display}}</span></td>
             <td></td>
          </tr>
       </table>
    </div>  
-   <!--Question-->
-   <div class="questions-div container questions" ng-show="check && count!=21 && !timercheck">
-      <div class="row">
-         <div class="width-500">
-            <div class="question-heading-group col-xs-10">
-               <h1 class="section-heading question">QUESTION</h1>
-               <p class="ceb-question">{{ques.test.currentQuestion.question}}</p>
+   <div ng-show="!InstructionPage || InstructionPage1">
+      <div class="container instructions" >
+         <div class="row">
+            <div class="width-500 info-box">
+               <div class="info-bar">
+                  <p class="info-title">Assessment</p>
+               </div>
+               <div class="info-box-content-wrap">
+                  <h4>You are about to complete an assessment </h4>
+                  <p class="heading"> Assessment: </p>
+                  <p>Working with information</p>
+                  <p class="heading">Time Limit:</p>
+                  <p>You have <span class="bold-font">8 minutes</span> to complete this test.</p>
+                  <p class="heading"> Additional Information</p>
+                  <p>If you lose your connection, this test will restart where you left off. 
+                     You will not have an opportunity to review all questions at the end of this test.
+                  </p>
+               </div>
             </div>
-            <button class="col-xs-2" ng-class="ques.showOverlay ? 'hide-answer-overlay' : 'show-answer-overlay'" ng-click="ques.showOverlay = !ques.showOverlay;ques.answersOverlay()"> <span></span> </button>
+            <div class="width-500 info-box">
+               <div class="info-bar">
+                  <p class="info-title">FOLLOWING INSTRUCTIONS</p>
+               </div>
+               <div class="info-box-content-wrap">
+                  Each item contains a question and a set of rules in the form of a calendar, driving directions, filing system, office rules, or guidelines. You are to answer each question based on the set of rules provided. To select your answer, click the associated radio button or text.<BR><BR>
+
+This is a timed test so you should work quickly and accurately. You may also change an answer before moving to the next question by selecting another answer.
+<BR><BR>
+It is possible that you may not finish this test, but do not guess to increase the number of questions that you answer. There is a penalty for random guessing.<BR><BR>
+
+You will be given an opportunity to practice answering questions with an example question. This example test will help you become familiar with the test format and give you practice in using the mouse to select your answers.
+               </div>
+            </div>
          </div>
-         {{que.showOverlay}}
       </div>
    </div>
-   <!-- ./ question -->
-   <!-- Answers -->
-      <div ng-show="ques.showAnswers">
-         <div ng-class="ques.showOverlay ? 'white-div-answers pull-answers white-div':'white-div-answers push-answers white-div'" ng-show="check && count!=21 && !timercheck">
-            <div class="container questions">
-               <div class="row">
-                  <div class="width-500">
-                     <div class="row">
-                        <div class="options-margin" ng-repeat="option in ques.test.currentQuestion.options">
-                           <div class="ceb-options" ng-class="{'active': ques.answer == option.option}" ng-click="ques.answer = option.option ; ques.answer1 = option.isCorrect ; ques.isClick()" >
-                           
-                              <span class="sr-only">Option {{$index+1}} {{option.option}}</span>
-                              <span class="option-text">{{option.option}}</span>
-                              <input class="pull-right" type="radio" name="optradio" ng-model="ques.answer" ng-value="option.option" ng-model="ques.answer.checked" >
-                              <label>
-                              </label>
-                           </div>
-                        </div>
-                        <div class="col-xs-12 options-margin" ng-hide="count==20">
-                           <button class="btn btn-ceb" ng-click="ques.showNextQuestion(ques.answer,ques.answer1);ques.answer='';option.option='';ques.tab=true">NEXT</button>
-                          
-                        </div>
-                        <div class="col-xs-12 options-margin" ng-show="count==20">
-                           <button class="btn btn-ceb" ng-click="ques.showNextQuestion()">FINISH</button>
-                        </div>
-                     </div>
+   
+       <div class="">
+            <div ng-show="!check && !InstructionPage || InstructionPage1">
+           
+               <div class="width-500 type3 table-100"  ng-show="!check && count!=21 && !timercheck" >
+               
+               <div class="btn-group-container">
+                  <div class="btn-group btn-group-justified">
+                     
                   </div>
                </div>
-            </div>
-         </div>         
-      </div>
-   <!-- ./ Answers --> 
-   <!-- Instruction wrapper -->
-   <div class="instructions-wrapper" ng-hide="!check && !InstructionPage || InstructionPage1 || ques.showOverlay" ng-class="check>0 && check < 19 ? 'add-padding':''">
-      <div class="container instructions">
-         <div class="row">
-            <div class="width-500" ng-if="ques.test.set == 0" ng-show="check && count!=21 && !timercheck ">
-               <h1 class="section-heading instruction">INFORMATION</h1>
-               <div class="btn-group-container">
-                  <div class="instruction-heading">Coding Customer Transactions</div>
-                  <p>
-                     When coding customer transactions <span class="bold-font">always</span> begin with the type of account, followed by dollar amount and withdrawal or deposit codes.
-                  </p>
-                  <p>
-                     There are two types of accounts:
-                     <span class="bold-font">PAS</span> and <span class="bold-font">GLD</span>.
-                  </p>
+               <div ng-if="ques.tab">
+                 
+                  
                </div>
-               <div>
+               <div ng-if="!ques.tab">
                   <table class="table ceb-table">
-                     <thead>
-                        <tr>
-                           <th></th>
-                           <th>Code</th>
-                        </tr>
-                     </thead>
                      <tbody>
                         <tr>
-                           <td>For a withdrawal</td>
-                           <td>W</td>
+                           <td>LY </td>
+                           <td>Late payment dispute</td>
                         </tr>
                         <tr>
-                           <td>For a deposit</td>
-                           <td>A</td>
+                           <td>AB</td>
+                           <td>Account balance inquiry  </td>
                         </tr>
                         <tr>
-                           <td>PAS withdraws more than $1,500</td>
-                           <td>G</td>
+                           <td>LT</td>
+                           <td>Send late payment notice</td>
                         </tr>
                         <tr>
-                           <td>GLD withdraws more than $2,500</td>
-                           <td>H</td>
+                           <td>CA</td>
+                           <td>Account closing</td>
                         </tr>
                         <tr>
-                           <td>PAS deposits more than $500 </td>
-                           <td>D</td>
+                           <td>CO</td>
+                           <td>Customer initiated call</td>
                         </tr>
                         <tr>
-                           <td>GLD deposits more than $1,000</td>
-                           <td>S</td>
+                           <td>PD</td>
+                           <td>Customer will make payment in 5 days</td>
+                        </tr>
+                        <tr>
+                           <td>AR </td>
+                           <td>
+                              Account past due courtesy call
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>23</td>
+                           <td>Unanswered telephone call </td>
+                        </tr>
+                        <tr>
+                           <td>45</td>
+                           <td>Telephone number does not exist </td>
+                        </tr>
+                        <tr>
+                           <td>76</td>
+                           <td>Customer change of address </td>
+                        </tr>
+                        <tr>
+                           <td>82</td>
+                           <td>Sales call</td>
+                        </tr>
+                        <tr>
+                           <td>93</td>
+                           <td>Customer requested supervisor</td>
                         </tr>
                      </tbody>
                   </table>
                </div>
             </div>
 
-            <div class="width-500 type3"  ng-show="!check && count!=21 && !timercheck" >
+            </div>
+
+            </div>
+   <div class="instructions-wrapper" ng-hide="!check && !InstructionPage || InstructionPage1">
+      <div class="container instructions">
+         <div class="row">
+            <div class="width-500" ng-if="ques.test.set == 0" ng-show="check && count!=21 && !timercheck ">
+               <h1 class="section-heading instruction">INFORMATION</h1>
+               <div class="btn-group-container">
+                  
+               </div>
+               <div>
+                  <table class="table ceb-table">
+                     <tbody>
+                        <tr>
+                           <td>SUN</td>
+                           <td>MON</td>
+                            <td>TUE</td>
+                             <td>WED</td>
+                              <td>THU</td>
+                               <td>FRI</td>
+                                <td>SAT</td>
+                        </tr>
+                        <tr>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td>1</td>
+                           <td>2</td>
+                           <td>3</td>
+                        </tr>
+                        <tr>
+                           <td>4</td>
+                           <td>5</td>
+                           <td>6</td>
+                           <td>7</td>
+                           <td>8</td>
+                           <td>9</td>
+                           <td>10</td>
+                        </tr>
+                        <tr>
+                           <td>11</td>
+                           <td>12</td>
+                           <td>13</td>
+                           <td>14</td>
+                           <td>15</td>
+                           <td>16</td>
+                           <td>17</td>
+                        </tr>
+                        <tr>
+                           <td>18</td>
+                           <td>19</td>
+                           <td>20</td>
+                           <td>21</td>
+                           <td style="color:#00adee">22</td>
+                           <td>23</td>
+                           <td>24</td>
+                        </tr>
+                        <tr>
+                           <td>25</td>
+                           <td>26</td>
+                           <td>27</td>
+                           <td>28</td>
+                           <td>29</td>
+                           <td>30</td>
+                           <td></td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <div class="calendar-info">
+                     <p class="semiBold-font">Office Calendar Legend:</p>
+                     <p>Dates in Blue are paid holidays.<br>
+                     Dates that are bold are paydays.<br>
+                     Saturdays and Sundays are weekend days.<br>
+                     All days except paid holidays and weekend days are workdays.</p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="width-500 type3"  ng-show="!check && count!=21 && !timercheck" ng-class="{'fadein': ques.open}" ng-click="ques.openOptions()">
                <h1 class="section-heading instruction">INFORMATION</h1>
                <div class="btn-group-container">
                   <div class="btn-group btn-group-justified">
-                      <a href="#" class="btn btn-tab" ng-class="{'active': ques.tab}" ng-click="ques.tab = true" onclick="return false;">Customer Interaction Info.</a>
-                    <a href="#" class="btn  btn-tab" ng-class="{'active': !ques.tab}" ng-click="ques.tab = false" onclick="return false;">Interaction Codes</a>
+                     
                  </div>
                </div>
                <div ng-if="ques.tab">
-                  <table class="table ceb-table customer-interaction">
+                  <table class="table ceb-table">
                      <tbody>
                         <tr>
-                           <td>Name</td>
-                           <td>Mary S. Stevens</td>
+                           <td>SUN</td>
+                           <td>MON</td>
+                            <td>TUE</td>
+                             <td>WED</td>
+                              <td>THU</td>
+                               <td>FRI</td>
+                                <td>SAT</td>
                         </tr>
                         <tr>
-                           <td>Address</td>
-                           <td>16 E. Pine Avenue</td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td></td>
+                           <td>1</td>
+                           <td>2</td>
+                           <td>3</td>
                         </tr>
                         <tr>
-                           <td>Last Updated</td>
-                           <td>21/07/2007</td>
+                           <td>4</td>
+                           <td>5</td>
+                           <td>6</td>
+                           <td>7</td>
+                           <td>8</td>
+                           <td>9</td>
+                           <td>10</td>
                         </tr>
                         <tr>
-                           <td>Account No.</td>
-                           <td>1225637</td>
+                           <td>11</td>
+                           <td>12</td>
+                           <td>13</td>
+                           <td>14</td>
+                           <td>15</td>
+                           <td>16</td>
+                           <td>17</td>
                         </tr>
                         <tr>
-                           <td>Telephone</td>
-                           <td>(310) 645-7878</td>
+                           <td>18</td>
+                           <td>19</td>
+                           <td>20</td>
+                           <td>21</td>
+                           <td style="color:#00adee">22</td>
+                           <td>23</td>
+                           <td>24</td>
+                        </tr>
+                        <tr>
+                           <td>25</td>
+                           <td>26</td>
+                           <td>27</td>
+                           <td>28</td>
+                           <td>29</td>
+                           <td>30</td>
+                           <td></td>
                         </tr>
                      </tbody>
                   </table>
-                  <table class="table ceb-table customer-interaction">
-                     <thead>
-                        <tr>
-                           <th>Date</th>
-                           <th>Interaction</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>01/20/2007 Jan</td>
-                           <td>CO, AB, 82</td>
-                        </tr>
-                        <tr>
-                           <td>03/02/2007 Mar</td>
-                           <td>LT, AR, 23</td>
-                        </tr>
-                        <tr>
-                           <td>03/17/2007 Mar</td>
-                           <td>CO, LY, PD, 93</td>
-                        </tr>
-                        <tr>
-                           <td>05/01/2007 May</td>
-                           <td>CO, AB, LY, 76, 93
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>05/22/2007 May</td>
-                           <td>LT, AR, 45</td>
-                        </tr>
-                        <tr>
-                           <td>06/19/2007 June</td>
-                           <td>CO, PD, 82</td>
-                        </tr>
-                        <tr>
-                           <td>07/21/2007 July</td>
-                           <td>CO, AB, CA</td>
-                        </tr>
-                     </tbody>
-                  </table>
+                  <div class="calendar-info">
+                     <p class="semiBold-font">Office Calendar Legend:</p>
+                     <p>Dates in Blue are paid holidays<br>
+                     Dates that are bold are paydays<br>
+                     Saturdays and Sundays are weekend days<br>
+                     All days except paid holidays and weekend days are workdays.</br></p>
+                  </div>
                </div>
                <div ng-if="!ques.tab">
-                  <table class="table ceb-table interaction-tab">
+                  <table class="table ceb-table">
                      <tbody>
                         <tr>
                            <td>LY </td>
@@ -251,127 +342,86 @@
             <div class="width-500" ng-if="ques.test.set == 1" ng-show="check && count!=21 && !timercheck || InstructionPage1">
                <h1 class="section-heading instruction">INFORMATION</h1>
                <div class="btn-group-container">
-                  <div class="instruction-heading">Coding Commercial Accounts</div>
+                  
                </div>
-               <div>
-                  <table class="table ceb-table">
-                     <thead>
-                        <tr>
-                           <th></th>
-                           <th>Silver</th>
-                           <th>Gold</th>
-                           <th>Platinum</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>Account</td>
-                           <td>SA</td>
-                           <td>GA</td>
-                           <td>PA</td>
-                        </tr>
-                        <tr>
-                           <td>Credit Limit</td>
-                           <td>CL-10</td>
-                           <td>CL-25</td>
-                           <td>CL-50</td>
-                        </tr>
-                        <tr>
-                           <td>Overdraft Fee</td>
-                           <td>OD-25</td>
-                           <td>OD-50</td>
-                           <td>OD-75</td>
-                        </tr>
-                        <tr>
-                           <td>Insurance</td>
-                           <td>DL</td>
-                           <td>DLP</td>
-                           <td>DLPJ</td>
-                        </tr>
-                     </tbody>
-                  </table>
+               <div class="airport-info">
+                  <div class="calendar-info">
+                    
+                        <p class="semiBold-font">I-785 Southbound:</p>
+Exit at Airport Parkway, exit 2. Turn left at the end of the ramp,<br> and then follow the signs to the Atlanta International Airport. <br><br>
+<p class="semiBold-font">I-55/65 Southbound:</p>
+Exit at Atlanta Airport, exit 142. Travel on I-65 S approx. 2 miles,<br> and then take exit 53, Airport Parkway/Montgomery. Follow the<br> signs to Atlanta International Airport.<br><br>
+
+<p class="semiBold-font">I-65 Northbound:</p>
+Exit at Southdale, exit 71. Follow the signs to Atlanta International <br>Airport.<br><br>
+
+<p class="semiBold-font">I-55 Northbound:</p>
+Exit at I-785 W, exit 238B. Travel west on I-785 approx. 5 miles,<br> then take exit 61, Atlanta Airport. Follow the signs to Atlanta <br>International Airport.<br><br>
+
+<p class="semiBold-font">I-25 Eastbound:</p>
+Travel east on I-25 and exit at I-785 S, exit 51A. Follow the I-785 <br>Southbound directions.
+
+                  </div>
                </div>
                <div class="btn-group-container">
-                  <p>
-                     Note: Codes are always listed first by account, then credit limit, overdraft, and insurance.
-                  </p>
+                  
                </div>
             </div>
             <div class="width-500 type3"  ng-if="ques.test.set == 2" ng-show="check && count!=21 && !timercheck">
                <h1 class="section-heading instruction">INFORMATION</h1>
                <div class="btn-group-container">
                   <div class="btn-group btn-group-justified">
-                      <a href="#" class="btn btn-tab" ng-class="{'active': ques.tab}" ng-click="ques.tab = true" onclick="return false;">Customer Interaction Info.</a>
-                    <a href="#" class="btn  btn-tab" ng-class="{'active': !ques.tab}" ng-click="ques.tab = false" onclick="return false;">Interaction Codes</a>
+                     
                   </div>
                </div>
-               <div ng-if="ques.tab">
-                  <table class="table ceb-table customer-interaction">
+               <div ng-if="ques.tab" class="airport-info">
+                  <table >
                      <tbody>
-                        <tr>
-                           <td>Name</td>
-                           <td>Mary S. Stevens</td>
-                        </tr>
-                        <tr>
-                           <td>Address</td>
-                           <td>16 E. Pine Avenue</td>
-                        </tr>
-                        <tr>
-                           <td>Last Updated</td>
-                           <td>21/07/2007</td>
-                        </tr>
-                        <tr>
-                           <td>Account No.</td>
-                           <td>1225637</td>
-                        </tr>
-                        <tr>
-                           <td>Telephone</td>
-                           <td>(310) 645-7878</td>
-                        </tr>
+                        Purchase orders are filed according to amount and company name using the system below. All closed puchased orders have a $0 balance. Company names that begin with a number are filed in drawer 2 or 4 according to the purchase order amount.
                      </tbody>
                   </table>
-                  <table class="table ceb-table customer-interaction">
+                  <table class="table ceb-table">
                      <thead>
-                        <tr>
-                           <th>Date</th>
-                           <th>Interaction</th>
+                       <tr>
+                          <div class="table-format">  <th>Amount</th></div>
+                           <th>Name</th>
+                           <th>Drawer</th>
                         </tr>
                      </thead>
                      <tbody>
                         <tr>
-                           <td>01/20/2007 Jan</td>
-                           <td>CO, AB, 82</td>
+                           <td>$0</td>
+                           <td>A-Z</td>
+                           <td>1</td>
+                        </tr>
+                         <tr>
+                           <td>$0.01 - $5,000</td>
+                           <td>A-M</td>
+                           <td>2</td>
                         </tr>
                         <tr>
-                           <td>03/02/2007 Mar</td>
-                           <td>LT, AR, 23</td>
+                           <td>$0.01 - $5,000</td>
+                           <td>N-Z</td>
+                           <td>3</td>
                         </tr>
-                        <tr>
-                           <td>03/17/2007 Mar</td>
-                           <td>CO, LY, PD, 93</td>
+                         <tr>
+                           <td>$5,000.01 and up</td>
+                           <td>A-M</td>
+                           <td>4</td>
                         </tr>
-                        <tr>
-                           <td>05/01/2007 May</td>
-                           <td>CO, AB, LY, 76, 93
-                           </td>
+                         <tr>
+                           <td>$5,000.01 and up</td>
+                           <td>N-Z</td>
+                           <td>5</td>
                         </tr>
-                        <tr>
-                           <td>05/22/2007 May</td>
-                           <td>LT, AR, 45</td>
-                        </tr>
-                        <tr>
-                           <td>06/19/2007 June</td>
-                           <td>CO, PD, 82</td>
-                        </tr>
-                        <tr>
-                           <td>07/21/2007 July</td>
-                           <td>CO, AB, CA</td>
-                        </tr>
+                       
+                       
+                       
                      </tbody>
                   </table>
                </div>
                <div ng-if="!ques.tab">
-                  <table class="table ceb-table interaction-tab">
+                  <table class="table ceb-table">
                      <tbody>
                         <tr>
                            <td>LY </td>
@@ -431,69 +481,25 @@
                <h1 class="section-heading instruction">INFORMATION</h1>
                <div class="btn-group-container">
                   <div class="btn-group btn-group-justified">
-                     <a href="#" class="btn btn-tab" ng-class="{'active': ques.tab}" ng-click="ques.tab = true">Retail Promotion Inquiry</a>
-                     <a href="#" class="btn  btn-tab" ng-class="{'active': !ques.tab}" ng-click="ques.tab = false">Past Transactions</a>
+                    
                   </div>
                </div>
                <div ng-if="ques.tab">
-                  <table class="table ceb-table">
-                     <tbody>
-                        <tr>
-                           <td>Discount Starting Date</td>
-                           <td>06/01/2007</td>
-                        </tr>
-                        <tr>
-                           <td>Cash-Back Bonus Starting Date</td>
-                           <td>06/01/2007</td>
-                        </tr>
-                        <tr>
-                           <td>Today’s Date</td>
-                           <td>21/07/2007</td>
-                        </tr>
-                     </tbody>
-                  </table>
-                  <table class="table ceb-table">
-                     <thead>
-                        <tr>
-                           <th colspan="2">Terms for Retailer Discount</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>Length of program</td>
-                           <td>60 days</td>
-                        </tr>
-                        <tr>
-                           <td>Minimum required purchase</td>
-                           <td>$200.00</td>
-                        </tr>
-                        <tr>
-                           <td>Retail discount rate</td>
-                           <td>0.05%</td>
-                        </tr>
-                     </tbody>
-                  </table>
-                  <table class="table ceb-table">
-                     <thead>
-                        <tr>
-                           <th colspan="2">Terms for Retailer Cash-Back Bonus</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>Length of program</td>
-                           <td>60 days</td>
-                        </tr>
-                        <tr>
-                           <td>Minimum required purchase</td>
-                           <td>$100.00</td>
-                        </tr>
-                        <tr>
-                           <td>Retail discount rate</td>
-                           <td>0.03%</td>
-                        </tr>
-                     </tbody>
-                  </table>
+               <div class="calendar-info">
+                    <p class="semiBold-font">Office Hour Rules</p>
+<p>Glen Ridge employes work 7am-3pm, 9am-5pm, 10am-6pm or telecommute. Office hours are determined according to the conditions listed below.</p><br>
+<ul>
+   <li><p>All sales employees must work 9am-5pm unless conducting a sales call at a client's office.</p></li>
+   <li><p>A sales employees conducting a sales call at a clients office telecommutes.</p></li>
+   <li><p>ll accounting employees work 9am-5pm except the collection manager who works 7am-3pm.</p></li>
+   <li><p>Production employees work 10am-6pm.</p></li>
+   <li><p>Any employee not previously mentioned works 9am-5pm.</p></li>
+</ul>
+ 
+
+
+                 </div>
+                 
                </div>
                <div ng-if="!ques.tab">
                   <table class="table ceb-table">
@@ -532,193 +538,73 @@
                   </table>
                </div>
             </div>
-         </div>
-      </div>
-      <!-- container -->
-   </div>
-   <!-- ./ Instruction wrapper -->
-   <div ng-show="!InstructionPage || InstructionPage1">
-      <div class="container instructions">
-         <div class="row">
-            <div class="width-500 info-box">
-               <div class="info-bar">
-                  <p class="info-title">Assessment</p>
-               </div>
-               <div class="info-box-content-wrap">
-                  <h4>You are about to complete an assessment </h4>
-                  <p class="heading"> Assessment: </p>
-                  <p>Working with information</p>
-                  <p class="heading">Time Limit:</p>
-                  <p>You have <span class="bold-font">10 minutes</span> to complete this test.</p>
-                  <p class="heading"> Additional Information</p>
-                  <p>If you lose your connection, this test will restart where you left off. 
-                     You will not have an opportunity to review all questions at the end of this test.
-                  </p>
-               </div>
-            </div>
-            <div class="width-500 info-box">
-               <div class="info-bar">
-                  <p class="info-title">Working with Information</p>
-               </div>
-               <div class="info-box-content-wrap">
-                  <ol>
-                     <li>The following is an evaluation of how workers process information.</li>
-                     <li>You will be given information in the form of simulated computer screens or sets of instructions.</li>
-                     <li>You will use the information provided to answer related questions.</li>
-                     <li>Each question has five possible choices. Please choose the one correct option to each question.</li>
-                     <li>Work quickly, but do not rush. If you do not know an answer, select the response you think is most likely to be correct. Resist the urge to answer by guessing.</li>
-                     <li>This assessment contains <span class="bold-font">20 questions.</span> This is a timed assessment, and you will have <span class="bold-font">10 minutes</span> to complete this assessment.</li>
-                     <li>You are permitted to skip items, but skipped items will be scored as <span class="bold-font">incorrect.</span> You will <span class="bold-font">not</span> have an opportunity to review questions at the end of this test.</li>
-                     <li>If you lose your internet connection, this test will restart where you left off.</li>
-                  </ol>
-                  <p>It is important to note that <u>some of the tables within these tests are
-                     interactive.</u> This means that you will need to scroll left/right or select the Heading tabs at the top of the table to toggle between screens of information.
-                  </p>
-                  <p>
-                     An example of an interactive table is presented below. Information required to answer the questions will be included on both the “Customer Interaction Info.” tab and the “Interaction Codes” tab. You may toggle between screens by swiping left/right or by clicking on the heading tabs for the screen you wish to review.
-                  </p>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-       <div class="" >
-            <div ng-show="!check && !InstructionPage || InstructionPage1">
-           
-               <div class="width-500 type3 table-100"  ng-show="!check && count!=21 && !timercheck" >
+                        <div class="width-500 type5" ng-if="ques.test.set == 4" ng-show="check && count!=21 && !timercheck">
                <h1 class="section-heading instruction">INFORMATION</h1>
                <div class="btn-group-container">
                   <div class="btn-group btn-group-justified">
-                      <a href="#" class="btn btn-tab" ng-class="{'active': ques.tab}" ng-click="ques.tab = true" onclick="return false;">Customer Interaction Info.</a>
-                    <a href="#" class="btn  btn-tab" ng-class="{'active': !ques.tab}" ng-click="ques.tab = false" onclick="return false;">Interaction Codes</a>
+                    
                   </div>
                </div>
                <div ng-if="ques.tab">
-                  <table class="table ceb-table customer-interaction">
-                     <tbody>
-                        <tr>
-                           <td>Name</td>
-                           <td>Mary S. Stevens</td>
-                        </tr>
-                        <tr>
-                           <td>Address</td>
-                           <td>16 E. Pine Avenue</td>
-                        </tr>
-                        <tr>
-                           <td>Last Updated</td>
-                           <td>21/07/2007</td>
-                        </tr>
-                        <tr>
-                           <td>Account No.</td>
-                           <td>1225637</td>
-                        </tr>
-                        <tr>
-                           <td>Telephone</td>
-                           <td>(310) 645-7878</td>
-                        </tr>
-                     </tbody>
-                  </table>
-                  <table class="table ceb-table customer-interaction">
+               <div class="calendar-info">
+                   <p class="semiBold-font">Guidelines for Making Copies</p><br>
+                  <p>Copies are made using the main copier, the desktop copier, the fax machine, or the network printer. 
+                  Guidlines for selecting the appropriate copying device are listed below.</p><br>
+
+                  <ul>
+                     <li><p>A single copy of a 1-5 page document is made using the fax machine.</p></li>
+                     <li><p>Two to ten copies of a 1-5 page document are made using the network printer unless there is only a hard copy of the original document in which case use the desktop copier.</p></li>
+                     <li><p>Eleven to twenty copies of a 1-5 page document are made using the desktop copier unless the copies must be sorted or stapled in which case use the main copier.</p></li>
+                     <li><p>More than 20 copies of any size document are made using the main copier.</p></li>
+                     <li><p>All copies of a document with more than 5 pages are made using the main copier.</p></li>
+                  </ul>
+                 </div>
+                 
+               </div>
+               <div ng-if="!ques.tab">
+                  <table class="table ceb-table">
                      <thead>
                         <tr>
                            <th>Date</th>
-                           <th>Interaction</th>
+                           <th>Amount</th>
                         </tr>
                      </thead>
                      <tbody>
                         <tr>
-                           <td>01/20/2007 Jan</td>
-                           <td>CO, AB, 82</td>
+                           <td>12 May 07</td>
+                           <td>$310.12</td>
                         </tr>
                         <tr>
-                           <td>03/02/2007 Mar</td>
-                           <td>LT, AR, 23</td>
+                           <td>9 Jun 07</td>
+                           <td>$278.45</td>
                         </tr>
                         <tr>
-                           <td>03/17/2007 Mar</td>
-                           <td>CO, LY, PD, 93</td>
+                           <td>22 Jun 07</td>
+                           <td>$55.75</td>
                         </tr>
                         <tr>
-                           <td>05/01/2007 May</td>
-                           <td>CO, AB, LY, 76, 93
-                           </td>
+                           <td>3 Jul 07</td>
+                           <td>$98.15</td>
                         </tr>
                         <tr>
-                           <td>05/22/2007 May</td>
-                           <td>LT, AR, 45</td>
+                           <td>10 Jul 07</td>
+                           <td>$115.35</td>
                         </tr>
                         <tr>
-                           <td>06/19/2007 June</td>
-                           <td>CO, PD, 82</td>
-                        </tr>
-                        <tr>
-                           <td>07/21/2007 July</td>
-                           <td>CO, AB, CA</td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </div>
-               <div ng-if="!ques.tab">
-                  <table class="table ceb-table interaction-tab">
-                     <tbody>
-                        <tr>
-                           <td>LY </td>
-                           <td>Late payment dispute</td>
-                        </tr>
-                        <tr>
-                           <td>AB</td>
-                           <td>Account balance inquiry  </td>
-                        </tr>
-                        <tr>
-                           <td>LT</td>
-                           <td>Send late payment notice</td>
-                        </tr>
-                        <tr>
-                           <td>CA</td>
-                           <td>Account closing</td>
-                        </tr>
-                        <tr>
-                           <td>CO</td>
-                           <td>Customer initiated call</td>
-                        </tr>
-                        <tr>
-                           <td>PD</td>
-                           <td>Customer will make payment in 5 days</td>
-                        </tr>
-                        <tr>
-                           <td>AR </td>
-                           <td>
-                              Account past due courtesy call
-                           </td>
-                        </tr>
-                        <tr>
-                           <td>23</td>
-                           <td>Unanswered telephone call </td>
-                        </tr>
-                        <tr>
-                           <td>45</td>
-                           <td>Telephone number does not exist </td>
-                        </tr>
-                        <tr>
-                           <td>76</td>
-                           <td>Customer change of address </td>
-                        </tr>
-                        <tr>
-                           <td>82</td>
-                           <td>Sales call</td>
-                        </tr>
-                        <tr>
-                           <td>93</td>
-                           <td>Customer requested supervisor</td>
+                           <td>20 Jul 07</td>
+                           <td>$34.25</td>
                         </tr>
                      </tbody>
                   </table>
                </div>
             </div>
 
-            </div>
-
-            </div>
+         </div>
+      </div>
+      <!-- container -->
+   </div>
+   
+       
    <div ng-show="!check && !InstructionPage || InstructionPage1">
       <div class="container questions1">
          <div class="row">
@@ -731,13 +617,15 @@
                      Click “Start Sample Question” to be taken to a sample question to help get you more familiar with the format before starting.
                   </p>
                   <div class="col-xs-14">
-                     <button class="btn btn-ceb" ng-click="startInstruction();ques.tab=true">START EXAMPLE QUESTION</button>
+                     <button class="btn btn-ceb" ng-click="startInstruction()">START EXAMPLE QUESTION</button>
                   </div>
                </div>
             </div>
          </div>
       </div>
    </div>
+
+
    <div class="white-div" ng-show="!check && InstructionPage && !InstructionPage1">
       <div class="container questions1">
          <div class="row">
@@ -777,7 +665,7 @@
                   <div class="start-eval hidden-xs" ng-hide="ques.answer1==null">
                      <button class="btn btn-ceb1" ng-click='exitAssessment()'>EXIT NOW</button>
                   
-                     <button class="btn btn-ceb2"  ng-click="startEvaluation();ques.answer1=''">START EVALUATION</button>
+                     <button class="btn btn-ceb2"  ng-click='startEvaluation()'>START EVALUATION</button>
                   </div>
                   <!-- Will be show only for small mobile devices -->
                   <div class="container">
@@ -796,6 +684,41 @@
          </div>
       </div>
    </div>
+   
+
+        
+   <div class="white-div"  ng-show="check && count!=21 && !timercheck">
+      <div class="container questions">
+         <div class="row">
+            <div class="width-500">
+               <div class="question-heading-group">
+                  <h1 class="section-heading question">QUESTION</h1>
+                  <p class="ceb-question">{{ques.test.currentQuestion.question}}</p>
+               </div>
+               <div class="row">
+                  <div class="options-margin" ng-repeat="option in ques.test.currentQuestion.options">
+                     <div class="ceb-options" ng-class="{'active': ques.answer == option.option}" ng-click="ques.answer = option.option ; ques.answer1 = option.isCorrect ; ques.isClick()" >
+                     
+                        <span class="sr-only">Option {{$index+1}} {{option.option}}</span>
+                        <span class="option-text">{{option.option}}</span>
+                        <input class="pull-right" type="radio" name="optradio" ng-model="ques.answer" ng-value="option.option" ng-model="ques.answer.checked" >
+                        <label>
+                        </label>
+                     </div>
+                  </div>
+                  <div class="col-xs-12 options-margin" ng-hide="count==20">
+                     <button class="btn btn-ceb" ng-click="ques.showNextQuestion(ques.answer,ques.answer1)">NEXT</button>
+                    
+                  </div>
+                  <div class="col-xs-12 options-margin" ng-show="count==20">
+                     <button class="btn btn-ceb" ng-click="ques.showNextQuestion()">FINISH</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+  
    <div class="exit-page"  ng-show="check && count==21 && InstructionPage && !InstructionPage1" >
       <div class="container questions">
          <div class="row">
@@ -851,6 +774,5 @@
          </div>
       </div>
    </div>
-   <!-- ./ bottom-div -->
 </div>
 <!-- questions controller -->
