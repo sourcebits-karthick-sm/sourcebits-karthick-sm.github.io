@@ -6434,9 +6434,9 @@ button.close {
 SMACSS: LAYOUT - COMMON
 -------------------------------------------------*/
 body {
-  background-color: #fff;
+  background-color: #23232b !important;
   font-family: 'proxima_regular';
-  background: url("../images/ceb-background.jpg") no-repeat center center fixed #fff;
+  background: url("../images/ceb-background.jpg") no-repeat center center fixed;
   background-size: cover; }
 
 header,
@@ -6476,7 +6476,7 @@ footer {
   width: 100%;
   position: fixed;
   top: 50px;
-  z-index: 1000; }
+  z-index: 9999999; }
 
 /*TImer*/
 .timer-bar .progress {
@@ -6497,12 +6497,12 @@ table.time {
   top: -20px;
   margin-bottom: -20px; }
   table.time td:not(.fix) {
-    background-image: linear-gradient(to bottom, transparent, transparent 40%, #23232b 40%, #23232b);
-    background-image: -moz-linear-gradient(to bottom, transparent, transparent 40%, #23232b 40%, #23232b); }
+    background-image: linear-gradient(to bottom, transparent, transparent 40%, #fff 40%, #fff);
+    background-image: -moz-linear-gradient(to bottom, transparent, transparent 40%, #fff 40%, #fff); }
   table.time .fix {
     text-align: center;
     width: 150px;
-    background-image: url(/images/timerLeft.png), url(/images/timerRight.png);
+    background-image: url(../images/timerLeft.png), url(../images/timerRight.png);
     background-position: left bottom, right bottom;
     background-repeat: no-repeat, no-repeat; }
     table.time .fix img {
@@ -6574,11 +6574,16 @@ table.time {
 
 .instructions-wrapper {
   width: 100%;
-  background-color: #23232b; }
+  height: 100vh;
+  padding-bottom: 30px;
+  overflow: scroll; }
   .instructions-wrapper .instructions p {
     color: white;
     margin: 20px auto;
     line-height: 1.25; }
+
+.add-padding {
+  padding-top: 140px; }
 
 .info-box:nth-child(2) .info-box-content-wrap {
   border-radius: 4px 4px 0 0; }
@@ -6599,6 +6604,9 @@ h1.section-heading.instruction {
 
 h1.section-heading.question {
   color: #000000; }
+
+.timer-pos img {
+  padding-right: 3px; }
 
 /* Tab Button */
 .btn-group-container {
@@ -6631,12 +6639,13 @@ h1.section-heading.question {
 /*CEB TABLE */
 .table-100 {
   margin-top: -30px;
-  /* width: 500px; */
-  border-radius: 4px 4px 4px 4px;
-  /* background-color: #23232b; */
+  /*width: 500px;*/
+  /*//height: 530px;*/
+  border-radius: 0px 0px 4px 4px;
+  background-color: #23232b;
   padding: 0px 10px 4px 10px;
   object-fit: contain;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */ }
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
   .table-100 h1.section-heading.instruction {
     padding-top: 20px; }
 
@@ -6665,22 +6674,9 @@ h1.section-heading.question {
     color: #FBFBFB;
     padding: 4px 10px; }
 
-.calender {
-  font-size: 16px;
-  font-weight: 600;
-  color: #ffffff;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
-
-.office-hour {
-  color: #fff; }
-
-.airport-info {
-  color: #fff;
-  padding-left: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
-
-.table-format {
-  width: 200px; }
+.type3 table thead > tr > th:nth-child(even),
+.type3 table tbody > tr:nth-child(odd) > td:nth-child(even) {
+  width: 335px; }
 
 .type4 table thead > tr > th:nth-child(even),
 .type4 table tbody > tr:nth-child(odd) > td:nth-child(even) {
@@ -6691,63 +6687,122 @@ h1.section-heading.question {
     border: none; } }
 
 /* bottom options div */
-/* bottom options div */
-.bottom-div {
-  z-index: 100;
-  position: fixed;
-  width: 100%;
-  background-color: white;
-  transition-duration: .5s;
-  transition-timing-function: ease;
-  -webkit-transition-duration: .5s;
-  -webkit-transition-timing-function: ease; }
-
-.bottom-div.open {
-  bottom: 0;
-  height: 80%; }
-
-.slider-div-up {
-  background-color: #23232b; }
-
-.slider-div-up .slider-btn-up {
-  background-color: white;
-  position: relative;
-  top: 8px;
-  /* border-radius: 30px; */
-  background-image: url(/images/slide-white-btn-right.png), url(/images/slide-white-btn-left.png);
-  background-position: right, left;
-  background-repeat: no-repeat, no-repeat;
-  margin: -2px;
-  width: 200px;
-  display: inline-block;
-  height: 14px; }
-
-.slider-div-down {
-  background-color: #23232b; }
-
-.slider-div-down .slider-btn-down {
-  background-color: #23232b;
-  position: relative;
-  top: 12px;
-  /* border-radius: 30px; */
-  background-image: url(/images/slide-down-right.png), url(/images/slide-down-left.png);
-  background-position: right bottom, left bottom;
-  background-repeat: no-repeat, no-repeat;
-  margin: -2px;
-  width: 200px;
-  display: inline-block;
-  /* height: 20px; */
-  font-size: 14px;
-  color: white; }
+.info-with-answer {
+  position: relative; }
 
 .white-div {
   width: 100%;
-  overflow: hidden;
   background-color: white;
   padding-bottom: 50px;
   font-size: 16px;
-  overflow: visible;
-  bottom: 0; }
+  overflow: scroll; }
+
+.white-div-answers {
+  z-index: 999;
+  height: 100vh;
+  padding-top: 140px; }
+
+.pull-answers {
+  position: relative;
+  /* Chrome, Safari, Opera */
+  animation: pull-down-answers 0.5s forwards; }
+
+/* Chrome, Safari, Opera */
+
+/* Standard syntax */
+@keyframes pull-down-answers {
+  0% {
+    top: -502px; }
+  100% {
+    top: 0px; } }
+
+.push-answers {
+  position: absolute;
+  z-index: 999;
+  top: -100vh;
+  /* Chrome, Safari, Opera */
+  animation: push-answers-top 0.5s forwards; }
+
+/* Chrome, Safari, Opera */
+
+/* Standard syntax */
+@keyframes push-answers-top {
+  0% {
+    top: 0px;
+    opacity: 1; }
+  100% {
+    top: -100vh;
+    opacity: 1; } }
+
+.questions-div {
+  width: 100%;
+  background-color: white;
+  font-size: 16px;
+  padding: 15px 0 15px;
+  opacity: 1;
+  position: fixed;
+  z-index: 999999; }
+
+.show-answer-overlay {
+  outline: none;
+  margin-top: 45px;
+  font-size: 16px;
+  color: white;
+  height: 44px;
+  border-radius: 0px;
+  font-family: 'proxima_semibold';
+  border: 0px;
+  /* For browsers that do not support gradients */
+  /* For Safari 5.1 to 6.0 */
+  /* For Opera 11.1 to 12.0 */
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#00c8f3, #0097f3);
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.15), 0px 3px 8px 0px rgba(0, 199, 243, 0.3); }
+  .show-answer-overlay .saved-for-later {
+    color: #00adee;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* For browsers that do not support gradients */
+    /* For Safari 5.1 to 6.0 */
+    /* For Opera 11.1 to 12.0 */
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, #f3f3f3);
+    /* Standard syntax */
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2); }
+
+.show-answer-overlay span {
+  background: url(../images/overlay-down.png) no-repeat;
+  background-size: 36px 25px;
+  position: absolute;
+  z-index: 9999;
+  width: 36px;
+  height: 26px;
+  top: 13px;
+  left: 21px; }
+
+.hide-answer-overlay {
+  outline: none;
+  font-size: 16px;
+  color: white;
+  margin-top: 45px;
+  height: 44px;
+  border-radius: 0px;
+  font-family: 'proxima_semibold';
+  border: 0px;
+  background: -moz-linear-gradient(#00c8f3, #0097f3);
+  color: #00adee;
+  background: linear-gradient(white, #f3f3f3);
+  box-shadow: 0px 4px 8px -1px rgba(0, 0, 0, 0.2);
+  border: 1px solid #f3f3f3; }
+
+.hide-answer-overlay span {
+  background: url(../images/overlay-top.png) no-repeat;
+  background-size: 36px 25px;
+  position: absolute;
+  z-index: 9999;
+  width: 36px;
+  height: 26px;
+  top: 13px;
+  left: 21px; }
 
 .output1 {
   max-width: 510px;
@@ -6815,9 +6870,8 @@ h1.section-heading.question {
   padding-right: 10px;
   /*padding-top: 12px;*/
   /*//display: table-cell;*/
-  -ms-flex-align: center;
-  display: -webkit-flex;
-  /* NEW */
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex-align: center;
   align-items: center;
   vertical-align: middle;
@@ -6827,14 +6881,6 @@ h1.section-heading.question {
   .ceb-options .option-text {
     float: left;
     width: 85%;
-    align-items: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    display: -webkit-flex;
-    /* NEW */
-    vertical-align: middle;
-    height: auto;
-    line-height: normal;
     padding-top: 10px;
     padding-bottom: 10px; }
 
@@ -7085,6 +7131,15 @@ btn-ceb2:active,
     margin-left: 0px; } }
 
 @media (max-width: 499px) {
+  .interaction-tab
+tbody > tr > td {
+    width: 15px; }
+  .customer-interaction
+tbody > tr > td {
+    min-width: 150px; }
+  .type3 table thead > tr > th:nth-child(even),
+  .type3 table tbody > tr:nth-child(odd) > td:nth-child(even) {
+    width: 200px; }
   .btn-group-justified {
     display: initial; }
   .btn-group-container {
@@ -7122,17 +7177,17 @@ input[type=radio]:not(old) + label {
   position: relative;
   margin-left: 40px;
   padding-left: 28px;
-  background: url("/images/answerRadioNormal.png") no-repeat 0 0;
+  background: url("../images/answerRadioNormal.png") no-repeat 0 0;
   line-height: 24px; }
 
 input[type=checkbox]:not(old):checked + label {
   background-position: 0 -24px; }
 
 input[type=radio]:not(old):checked + label {
-  background: url("/images/answerRadioSelected.png") no-repeat 0 0; }
+  background: url("../images/answerRadioSelected.png") no-repeat 0 0; }
 
 .ceb-question-progressbar {
-  z-index: 100;
+  z-index: 9999;
   width: 100%;
   height: 30px;
   position: fixed;
@@ -7212,12 +7267,10 @@ header {
 
 .info-box {
   margin: 10px auto;
-  font-size: 16px;
-  padding-top: 0px; }
+  font-size: 16px; }
 
 .padding-bottom-40 {
-  padding-bottom: 40px;
-  padding-top: 25px; }
+  padding-bottom: 40px; }
 
 .info-box h4 {
   color: #0e406a;
@@ -7274,7 +7327,7 @@ header {
   margin-bottom: 0px; }
 
 .info-box:nth-child(2) .info-box-content-wrap {
-  border-radius: 0px 0px 5px 5px; }
+  border-radius: 0; }
 
 .info-box:last-child .info-box-content-wrap {
   padding: 15px 15px 20px 15px;
@@ -7297,9 +7350,6 @@ header {
 .info-box {
   margin: 15px auto 10px; }
 
-.info-box {
-  margin: 15px auto 10px; }
-
 .bold-font {
   font-family: 'proxima_semibold'; }
 
@@ -7314,51 +7364,37 @@ header {
 .stop-overflow {
   overflow-y: hidden; }
 
-.instructions-wrapper .calendar-info {
-  margin: 20px 0 20px; }
-
-.instructions-wrapper .calendar-info p {
-  font-family: 'proxima_regular';
-  font-size: 16px;
-  margin: 0;
-  padding: 0;
-  line-height: 23px; }
-
-.instructions-wrapper .calendar-info p.semiBold-font {
-  font-family: 'proxima_semibold';
-  font-size: 16px; }
-
-.instructions-wrapper .calendar-info ul {
-  list-style: inherit;
-  color: #fff;
-  list-style-position: outside;
-  padding-left: 30px; }
-
 /*==========  Mobile First Method  ==========*/
 /* Custom, iPhone Retina */
 @media only screen and (min-width: 320px) {
   .tick-img {
     margin-left: 40px;
-    margin-top: 55px; }
+    margin-top: 20px; }
   .exit-button {
-    margin-top: 35px; } }
+    margin-top: 10px; }
+  .tablet-margin {
+    margin-top: 60px; } }
 
 @media only screen and (min-width: 375px) {
   .tick-img {
     margin-left: 60px;
     margin-top: 55px; }
   .exit-button {
-    margin-top: 35px; } }
+    margin-top: 35px; }
+  .tablet-margin {
+    margin-top: 60px; } }
 
 @media only screen and (min-width: 425px) {
   .tick-img {
     margin-left: 90px;
     margin-top: 55px; }
   .exit-button {
-    margin-top: 35px; } }
+    margin-top: 35px; }
+  .tablet-margin {
+    margin-top: 60px; } }
 
 /* Extra Small Devices, Phones */
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 470px) {
   .tick-img {
     margin-left: 125px;
     margin-top: 55px; }
@@ -7366,6 +7402,10 @@ header {
     margin-top: 35px; } }
 
 /* Small Devices, Tablets */
+@media only screen and (min-width: 480px) {
+  .tablet-margin {
+    margin-top: 175px; } }
+
 @media only screen and (min-width: 768px) {
   .tick-img {
     margin-left: 145px;
@@ -7373,7 +7413,10 @@ header {
   .exit-button {
     margin-top: 35px; }
   .tablet-margin {
-    margin-top: 222px !important; } }
+    margin-top: 222px; }
+  body {
+    background: url("../images/ceb-background.jpg") no-repeat center center fixed;
+    background-size: cover; } }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width: 992px) {
@@ -7389,7 +7432,9 @@ header {
     margin-left: 130px;
     margin-top: 55px; }
   .exit-button {
-    margin-top: 35px; } }
+    margin-top: 35px; }
+  .tablet-margin {
+    margin-top: 222px; } }
 
 /*-------------------------------------------------
 SMACSS: LAYOUT - SECTION

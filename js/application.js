@@ -2,7 +2,7 @@
 App ceb
 ==================================================================*/
 'use strict';
-angular.module('ceb', ['ui.router','ui.bootstrap','ngAnimate','duScroll','angularMoment'])
+angular.module('ceb', ['ui.router','ui.bootstrap','duScroll','angularMoment'])
 
 .config(['$stateProvider', "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
 
@@ -36,10 +36,14 @@ angular
 
 
 function questionController($scope, $http, $log, $document, $state,$rootScope) {
-    //console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
     var vm = this;
     vm.open = false;
     vm.tab = true;
+    vm.showOverlay = false;
+    vm.showAnswers = false;
+    vm.answersOverlay = function(){
+        vm.showAnswers = true;
+    };
     vm.questionProgressPercent = 0;
     var someElement = angular.element(document.getElementById('sticky'));
     vm.openOptions = function() {
@@ -47,7 +51,6 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
         // return;
 
         vm.open = true;
-
     }
     vm.closeOptions = function() {
 
@@ -55,7 +58,6 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
         // return;
         vm.open = false;
     }
-
 
     $http.get("images/data/testdata.json")
         .then(function(response) {
@@ -86,16 +88,13 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
         $document.find('body').css('background','none');
         $scope.InstructionPage = true;
         $scope.InstructionPage1 = false;
-
-        
-
         window.scrollTo(0, 0);
     };
 
     $scope.exitAssessment = function() {
         $scope.InstructionPage = true;
         $scope.InstructionPage1 = true;
-        $state.reload();
+         window.location = "/";
         window.scrollTo(0, 0);
     };
 
@@ -110,7 +109,7 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
         var deviceWidth = window.screen.width;
         if (deviceWidth < 768) {
             $scope.deviceType = "Mobile";
-        } else if (deviceWidth > 768 && deviceWidth < 992) {
+        } else if (deviceWidth >= 768 && deviceWidth < 992) {
             $scope.deviceType = "Tablet";
         } else if (deviceWidth > 992) {
             $scope.deviceType = "PC";
@@ -118,9 +117,9 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
     };
 
     $scope.startEvaluation = function() {
-        
+        // $document.find('body').css('background','none')
         $scope.check = true;
-        var timeLimit = 60 * 10;
+        var timeLimit =60 * 10;
         startTimer(timeLimit);
         deviceType();
         $scope.sendSessionId();
@@ -135,20 +134,20 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
         };
         // console.log(sessionData);
 
-        $http({
-            method: 'POST',
-            headers: { 'Content-type': 'application/json','charset':'utf-8'},
-            data: {
-            "SessionId": $scope.sessionId,
-            "DeviceName": $scope.deviceType
-            },
-            url: 'http://192.168.10.213/CEBAPI/api/UserService/Create1'
-            }).success(function(res){
+            // $http({
+            // method: 'POST',
+            // headers: { 'Content-type': 'application/json','charset':'utf-8'},
+            // data: {
+            // "SessionId": $scope.sessionId,
+            // "DeviceName": $scope.deviceType
+            // },
+            // url: 'http://192.168.10.213/CEBAPI/api/UserService/Create'
+            // }).success(function(res){
                 
-            })
-            .error(function(err){
-                console.log("error",err);
-            });
+            // })
+            // .error(function(err){
+            //     console.log("error",err);
+            // });
     };
 
     $scope.count = 1;
@@ -156,8 +155,6 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
     function endAssessment() {
         $scope.count += 1;
         $scope.InstructionPage1 = false;
-
-       $document.find('body').css('background','../images/ceb-background.jpg')
     }
     function format(s) {
         var ms = s % 1000;
@@ -170,9 +167,6 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
         hrs = (hrs < 10) ? "0" + hrs : hrs;
         mins = (mins < 10) ? "0" + mins : mins;
         secs = (secs < 10) ? "0" + secs : secs;
-
-
-
         $scope.finaltime = hrs + ':' + mins + ':' + secs;        
     };
     function store(s) {
@@ -181,19 +175,25 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
     };
 $scope.click = false;
    vm.isClick = function(){
-        
+        // $document.find('body').css('background','none')
         $scope.click = true;
     }
     $scope.NewTime1 = vm.display;
-    
     vm.showNextQuestion = function(answer,option) {
+        // To hide the answers
+        vm.showOverlay = false;
             window.scrollTo(0, 0);
             if($scope.count>19){
                 $document.find('body').css('background','');
                 console.log("Add image on complete ");
             }
-             vm.openOptions(); 
-           
+            
+            // if($scope.check && $scope.count!=21 && !$scope.timercheck){
+            //         $document.find('body').css('background','none')
+            //         console.log(":sdvkjasdbvalskjdvbaljshvbajkhsdv");
+            //     }
+
+            // console.log("when not clicked "+ $scope.click);
             //$scope.ans = answer;
             if($scope.click !=true) 
             {
@@ -258,24 +258,24 @@ $scope.click = false;
                 "Duration": $scope.finaltime,
                 "User_SessionId": $scope.sessionId
             };
-            $http({
-            method: 'POST',
-            headers: { 'Content-type': 'application/json','charset':'utf-8'},
-            data: {
-            "ItemType": $scope.ItemType,
-                "QuestionNumber": $scope.QuestionNumber,
-                "Answer": $scope.Answer, 
-                "IsRight": $scope.IsRight,
-                "Duration": $scope.finaltime,
-                "User_SessionId": $scope.sessionId
-            },
-            url: 'http://192.168.10.213/CEBAPI/api/AnswerService/CreateDWINFO1'
-            }).success(function(res){
-                console.log("success",res);
-            })
-            .error(function(err){
-                console.log("error",err);
-            });
+            // $http({
+            // method: 'POST',
+            // headers: { 'Content-type': 'application/json','charset':'utf-8'},
+            // data: {
+            // "ItemType": $scope.ItemType,
+            //     "QuestionNumber": $scope.QuestionNumber,
+            //     "Answer": $scope.Answer, 
+            //     "IsRight": $scope.IsRight,
+            //     "Duration": $scope.finaltime,
+            //     "User_SessionId": $scope.sessionId
+            // },
+            // url: 'http://192.168.10.213/CEBAPI/api/AnswerService/CreateDWINFO'
+            // }).success(function(res){
+            //     console.log("success",res);
+            // })
+            // .error(function(err){
+            //     console.log("error",err);
+            // });
 
              
 
