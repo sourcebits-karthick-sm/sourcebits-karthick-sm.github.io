@@ -6472,6 +6472,10 @@ footer {
     background-color: #00adee;
     box-shadow: 0px 1px 8px 0px rgba(255, 255, 255, 0.75); }
 
+#sticky-anchor {
+  width: 100%;
+  position: fixed; }
+
 #sticky {
   width: 100%;
   position: fixed;
@@ -6483,8 +6487,10 @@ footer {
   margin-bottom: 0px;
   border-radius: 0px;
   font-family: 'proxima_regular';
-  background-color: whitesmoke;
-  box-shadow: 0px -1px 0px 0px white, 0px 0px 0px 0px rgba(0, 0, 0, 0.08); }
+  background-color: #E6E6E6;
+  /*-webkit-box-shadow: 0px -1px 0px 0px rgb(255, 255, 255), 0px 0px 0px 0px rgba(0, 0, 0, 0.08);
+        -moz-box-shadow: 0px -1px 0px 0px rgb(255, 255, 255), 0px 0px 0px 0px rgba(0, 0, 0, 0.08);
+        box-shadow: 0px -1px 0px 0px rgb(255, 255, 255), 0px 0px 0px 0px rgba(0, 0, 0, 0.08);*/ }
 
 .timer-bar .progress-bar {
   box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.5), 0px 0px 0px 0px rgba(0, 0, 0, 0.08);
@@ -6574,8 +6580,8 @@ table.time {
 
 .instructions-wrapper {
   width: 100%;
-  height: 100vh;
-  padding-bottom: 30px; }
+  /*    height: 100vh;*/
+  padding-bottom: 20px; }
   .instructions-wrapper .instructions p {
     color: white;
     margin: 20px auto;
@@ -6598,7 +6604,7 @@ h1.section-heading {
   opacity: .5; }
 
 h1.section-heading.instruction {
-  padding-left: 10px;
+  /*padding-left: 10px;*/
   padding-top: 10px; }
 
 h1.section-heading.question {
@@ -6608,14 +6614,11 @@ h1.section-heading.question {
   padding-right: 3px; }
 
 /* Tab Button */
-.btn-group-container {
-  padding-left: 10px;
-  padding-right: 10px; }
-  .btn-group-container .instruction-heading {
-    font-family: 'proxima_regular';
-    font-size: 16px;
-    font-weight: 600;
-    color: #ffffff; }
+.btn-group-container .instruction-heading {
+  font-family: 'proxima_regular';
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff; }
 
 .btn-tab {
   color: white;
@@ -6698,7 +6701,7 @@ h1.section-heading.question {
 .white-div-answers {
   z-index: 999;
   height: 100vh;
-  padding-top: 140px; }
+  padding-top: 20px; }
 
 .pull-answers {
   position: relative;
@@ -6736,10 +6739,11 @@ h1.section-heading.question {
   width: 100%;
   background-color: white;
   font-size: 16px;
-  padding: 15px 0 15px;
+  padding: 20px 0 20px;
   opacity: 1;
   position: fixed;
-  z-index: 999999; }
+  z-index: 999999;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); }
 
 .show-answer-overlay {
   outline: none;
@@ -6855,8 +6859,8 @@ h1.section-heading.question {
   padding-left: 0px;
   padding-right: 0px; }
   .questions > .row .width-500 {
-    padding-left: 10px;
-    padding-right: 10px; }
+    /*padding-left: 10px;
+        padding-right: 10px;*/ }
 
 .ceb-options {
   font-size: 16px;
@@ -7150,11 +7154,11 @@ tbody > tr > td {
     padding-right: 5px; }
   .btn-tab-group {
     padding: 5px; }
-  .questions > .row {
+  .questions > .row, .instructions > .row {
     margin: 0px;
     padding-left: 0px;
     padding-right: 0px; }
-    .questions > .row .width-500 {
+    .questions > .row .width-500, .instructions > .row .width-500 {
       padding-left: 0px;
       padding-right: 0px; } }
 
@@ -7365,15 +7369,19 @@ header {
 /*==========  Mobile First Method  ==========*/
 /* Custom, iPhone Retina */
 @media only screen and (min-width: 320px) {
+  .white-div-answers {
+    height: auto; }
   .tick-img {
     margin-left: 40px;
     margin-top: 20px; }
   .exit-button {
     margin-top: 10px; }
   .tablet-margin {
-    margin-top: 60px; } }
+    margin-top: 20px; } }
 
 @media only screen and (min-width: 375px) {
+  .white-div-answers {
+    height: auto; }
   .tick-img {
     margin-left: 60px;
     margin-top: 55px; }
@@ -7383,6 +7391,8 @@ header {
     margin-top: 60px; } }
 
 @media only screen and (min-width: 425px) {
+  .white-div-answers {
+    height: auto; }
   .tick-img {
     margin-left: 90px;
     margin-top: 55px; }
@@ -7393,6 +7403,8 @@ header {
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width: 470px) {
+  .white-div-answers {
+    height: auto; }
   .tick-img {
     margin-left: 125px;
     margin-top: 55px; }
@@ -7401,6 +7413,8 @@ header {
 
 /* Small Devices, Tablets */
 @media only screen and (min-width: 480px) {
+  .question-heading-group {
+    padding: 0; }
   .tablet-margin {
     margin-top: 175px; } }
 
@@ -7426,8 +7440,15 @@ header {
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width: 1200px) {
+  .questions > .row, .instructions > .row {
+    margin: 0px;
+    padding-left: 0px;
+    padding-right: 0px; }
+    .questions > .row .width-500, .instructions > .row .width-500 {
+      padding-left: 0px;
+      padding-right: 0px; }
   .tick-img {
-    margin-left: 130px;
+    margin-left: 139px;
     margin-top: 55px; }
   .exit-button {
     margin-top: 35px; }

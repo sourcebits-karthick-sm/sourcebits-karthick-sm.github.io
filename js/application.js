@@ -119,7 +119,7 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
     $scope.startEvaluation = function() {
         // $document.find('body').css('background','none')
         $scope.check = true;
-        var timeLimit =60 * 10;
+        var timeLimit =40 * 10;
         startTimer(timeLimit);
         deviceType();
         $scope.sendSessionId();
