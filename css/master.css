@@ -7154,11 +7154,11 @@ tbody > tr > td {
     padding-right: 5px; }
   .btn-tab-group {
     padding: 5px; }
-  .questions > .row, .instructions > .row {
+  .questions > .row {
     margin: 0px;
     padding-left: 0px;
     padding-right: 0px; }
-    .questions > .row .width-500, .instructions > .row .width-500 {
+    .questions > .row .width-500 {
       padding-left: 0px;
       padding-right: 0px; } }
 
@@ -7379,11 +7379,16 @@ header {
   .tablet-margin {
     margin-top: 20px; } }
 
+@media only screen and (min-device-width: 360px) {
+  .tick-img {
+    margin-left: 55px;
+    margin-top: 30px; } }
+
 @media only screen and (min-width: 375px) {
   .white-div-answers {
     height: auto; }
   .tick-img {
-    margin-left: 60px;
+    margin-left: 65px;
     margin-top: 55px; }
   .exit-button {
     margin-top: 35px; }
@@ -7418,9 +7423,14 @@ header {
   .tablet-margin {
     margin-top: 175px; } }
 
+@media only screen and (min-device-width: 600px) and (max-device-width: 650px) {
+  .tick-img {
+    margin-left: 80px;
+    margin-top: 55px; } }
+
 @media only screen and (min-width: 768px) {
   .tick-img {
-    margin-left: 145px;
+    margin-left: 140px;
     margin-top: 55px; }
   .exit-button {
     margin-top: 35px; }
@@ -7433,7 +7443,7 @@ header {
 /* Medium Devices, Desktops */
 @media only screen and (min-width: 992px) {
   .tick-img {
-    margin-left: 133px;
+    margin-left: 140px;
     margin-top: 55px; }
   .exit-button {
     margin-top: 35px; } }
