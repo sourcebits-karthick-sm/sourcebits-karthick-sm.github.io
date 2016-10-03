@@ -6433,6 +6433,10 @@ button.close {
 /*-------------------------------------------------
 SMACSS: LAYOUT - COMMON
 -------------------------------------------------*/
+html {
+  min-height: 100%;
+  height: 100%; }
+
 body {
   background-color: #23232b !important;
   font-family: 'proxima_regular';
@@ -6478,7 +6482,7 @@ footer {
 
 #sticky {
   width: 100%;
-  position: fixed;
+  /*position: fixed;*/
   top: 50px;
   z-index: 9999999; }
 
@@ -6581,14 +6585,14 @@ table.time {
 .instructions-wrapper {
   width: 100%;
   /*    height: 100vh;*/
-  padding-bottom: 20px; }
+  /*padding-bottom: 20px;*/ }
   .instructions-wrapper .instructions p {
     color: white;
     margin: 20px auto;
     line-height: 1.25; }
 
 .add-padding {
-  padding-top: 140px; }
+  padding-top: 158px; }
 
 .info-box:nth-child(2) .info-box-content-wrap {
   border-radius: 4px 4px 0 0; }
@@ -6701,7 +6705,7 @@ h1.section-heading.question {
 .white-div-answers {
   z-index: 999;
   height: 100vh;
-  padding-top: 20px; }
+  /*padding-top: 20px;*/ }
 
 .pull-answers {
   position: relative;
@@ -6735,13 +6739,19 @@ h1.section-heading.question {
     top: -100vh;
     opacity: 1; } }
 
+#fixedContent {
+  position: fixed;
+  z-index: 999999;
+  top: 50px;
+  width: 100%; }
+
 .questions-div {
   width: 100%;
   background-color: white;
   font-size: 16px;
   padding: 20px 0 20px;
   opacity: 1;
-  position: fixed;
+  /*position: fixed;*/
   z-index: 999999;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); }
 
@@ -7372,23 +7382,37 @@ header {
   .white-div-answers {
     height: auto; }
   .tick-img {
-    margin-left: 40px;
-    margin-top: 20px; }
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 180px;
+    width: 180px;
+    margin-top: 30px; }
   .exit-button {
     margin-top: 10px; }
   .tablet-margin {
-    margin-top: 20px; } }
+    margin-top: 8px; } }
 
 @media only screen and (min-device-width: 360px) {
   .tick-img {
-    margin-left: 55px;
-    margin-top: 30px; } }
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 180px;
+    width: 180px;
+    margin-top: 40px; }
+  .tablet-margin {
+    margin-top: 55px; } }
 
 @media only screen and (min-width: 375px) {
   .white-div-answers {
     height: auto; }
   .tick-img {
-    margin-left: 65px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 180px;
+    width: 180px;
     margin-top: 55px; }
   .exit-button {
     margin-top: 35px; }
@@ -7399,7 +7423,11 @@ header {
   .white-div-answers {
     height: auto; }
   .tick-img {
-    margin-left: 90px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 180px;
+    width: 180px;
     margin-top: 55px; }
   .exit-button {
     margin-top: 35px; }
@@ -7411,7 +7439,11 @@ header {
   .white-div-answers {
     height: auto; }
   .tick-img {
-    margin-left: 125px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 180px;
+    width: 180px;
     margin-top: 55px; }
   .exit-button {
     margin-top: 35px; } }
@@ -7425,12 +7457,20 @@ header {
 
 @media only screen and (min-device-width: 600px) and (max-device-width: 650px) {
   .tick-img {
-    margin-left: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 180px;
+    width: 180px;
     margin-top: 55px; } }
 
 @media only screen and (min-width: 768px) {
   .tick-img {
-    margin-left: 140px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 180px;
+    width: 180px;
     margin-top: 55px; }
   .exit-button {
     margin-top: 35px; }
@@ -7443,7 +7483,11 @@ header {
 /* Medium Devices, Desktops */
 @media only screen and (min-width: 992px) {
   .tick-img {
-    margin-left: 140px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 180px;
+    width: 180px;
     margin-top: 55px; }
   .exit-button {
     margin-top: 35px; } }
@@ -7458,7 +7502,11 @@ header {
       padding-left: 0px;
       padding-right: 0px; }
   .tick-img {
-    margin-left: 139px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 180px;
+    width: 180px;
     margin-top: 55px; }
   .exit-button {
     margin-top: 35px; }

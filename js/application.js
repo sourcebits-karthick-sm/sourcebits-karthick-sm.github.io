@@ -35,7 +35,7 @@ angular
 // TIMER DEMO
 
 
-function questionController($scope, $http, $log, $document, $state,$rootScope) {
+function questionController($scope, $http, $log, $document, $state,$rootScope,$timeout,$interval) {
     var vm = this;
     vm.open = false;
     vm.tab = true;
@@ -119,7 +119,7 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
     $scope.startEvaluation = function() {
         // $document.find('body').css('background','none')
         $scope.check = true;
-        var timeLimit =60 * 10;
+        var timeLimit = 60 * 10;
         startTimer(timeLimit);
         deviceType();
         $scope.sendSessionId();
@@ -179,7 +179,18 @@ $scope.click = false;
         $scope.click = true;
     }
     $scope.NewTime1 = vm.display;
+
+    $scope.setPadding = function(){
+        
+        var fixedContentHeight = document.getElementById('fixedContent').clientHeight;
+        var addpadding = document.getElementsByClassName('add-padding')[0];
+        addpadding.style.paddingTop = fixedContentHeight + 'px';
+        console.log(fixedContentHeight);
+        // console.log(angular.element(document.getElementById('fixedContent').clientHeight));
+    }
+
     vm.showNextQuestion = function(answer,option) {
+        $timeout(console.log($('#fixedContent').height()));
         // To hide the answers
         vm.showOverlay = false;
             window.scrollTo(0, 0);
@@ -282,13 +293,16 @@ $scope.click = false;
         endAssessment();
         $scope.isButtonClicked = true;
         if (vm.currnetQuestionIndex < vm.sectionQuestions - 1) {
+            
             vm.currnetQuestionIndex += 1;
             vm.test.currentQuestion = vm.test.questions[vm.currnetQuestionIndex];
             vm.currentQuestionNum += 1;
+            // $timeout(vm.setPadding(),5000)
 
         } else if ((vm.currnetQuestionIndex < vm.sectionQuestions - 1) || vm.test.set < vm.setsMaxIndex
 
         ) {
+
             vm.test.set += 1;
             vm.test.questions = vm.test.sets[vm.test.set].questions;
             vm.test.currentQuestion = vm.test.questions[0];
@@ -296,14 +310,19 @@ $scope.click = false;
             vm.currnetQuestionIndex = 0;
             vm.currentQuestionNum += 1;
             calcQuestioPercent();
+            // $timeout(vm.setPadding(),5000)
 
         }
         calcQuestioPercent();
+        // vm.setPadding();
         $document.scrollToElementAnimated(someElement);
         $scope.click =false ;
+        // $timeout(vm.setPadding(),1000);
+
     }
 
     function calcQuestioPercent() {
+        
         (vm.currentQuestionNum == vm.test.totalQuestions) ? vm.questionProgressPercent = 100: vm.questionProgressPercent = ((vm.currentQuestionNum - 1) * 100) / vm.test.totalQuestions;
     }
 

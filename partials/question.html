@@ -3,21 +3,6 @@
     **************** -->
 
 <div ng-controller="questionController as ques">
-   <div id="sticky" ng-show="check && count!=21 && !timercheck">
-      <div class="timer-bar">
-         <uib-progressbar value="ques.percent">
-            <span class="sr-only">{{ques.percent}}</span>
-         </uib-progressbar>
-      </div>
-      <!--  timer -->
-      <table class="time">
-         <tr>
-            <td></td>
-            <td class="fix"> <span class="timer-pos" ><img src="/images/timerClock.png" alt="Clock icon">{{ques.display}}</span></td>
-            <td></td>
-         </tr>
-      </table>
-   </div>
    <div ng-show="!InstructionPage || InstructionPage1">
       <div class="container instructions">
          <div class="row">
@@ -214,21 +199,40 @@
          </div>
       </div>
    </div>
-   <!-- questionnaire set -->  
-      <!--Question-->
-      <div class="questions-div container questions" ng-show="check && count!=21 && !timercheck">
-         <div class="row">
-            <div class="width-500">
-               <div class="question-heading-group col-xs-12">
-                  <h1 class="section-heading question">QUESTION</h1>
-                  <p class="ceb-question">{{ques.test.currentQuestion.question}}</p>
-               </div>
-              <!--  <button class="col-xs-2" ng-class="ques.showOverlay ? 'hide-answer-overlay' : 'show-answer-overlay'" ng-click="ques.showOverlay = !ques.showOverlay;ques.answersOverlay()"> <span></span> </button> -->
+   <!-- questionnaire set -->
+      <div id="fixedContent">
+         <!-- timer -->  
+         <div id="sticky" ng-show="check && count!=21 && !timercheck">
+            <div class="timer-bar">
+               <uib-progressbar value="ques.percent">
+                  <span class="sr-only">{{ques.percent}}</span>
+               </uib-progressbar>
             </div>
-            {{que.showOverlay}}
+            <!--  timer -->
+            <table class="time">
+               <tr>
+                  <td></td>
+                  <td class="fix"> <span class="timer-pos" ><img src="/images/timerClock.png" alt="Clock icon">{{ques.display}}</span></td>
+                  <td></td>
+               </tr>
+            </table>
          </div>
+         <!-- ./ timer -->
+         <!--Question-->
+         <div class="questions-div container questions" ng-show="check && count!=21 && !timercheck">
+            <div class="row">
+               <div class="width-500">
+                  <div class="question-heading-group col-xs-12">
+                     <h1 class="section-heading question">QUESTION</h1>
+                     <p class="ceb-question">{{ques.test.currentQuestion.question}}</p>
+                  </div>
+                 <!--  <button class="col-xs-2" ng-class="ques.showOverlay ? 'hide-answer-overlay' : 'show-answer-overlay'" ng-click="ques.showOverlay = !ques.showOverlay;ques.answersOverlay()"> <span></span> </button> -->
+               </div>
+               {{que.showOverlay}}
+            </div>
+         </div>
+         <!-- ./ question -->
       </div>
-      <!-- ./ question -->
       <div class="info-with-answer" ng-hide="count > 20 || timercheck">
          <!-- Instruction wrapper -->
          <div class="instructions-wrapper" ng-hide="!check && !InstructionPage || InstructionPage1" ng-class="check>0 && check < 19 ? 'add-padding':''">
