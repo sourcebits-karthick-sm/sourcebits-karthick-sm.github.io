@@ -118,7 +118,7 @@
                         "isCorrect": "No"
                     }]
                 }, {
-                    "question": "Company XYZ has an insurance code of DL. What type of account and credit limit codes does it have?",
+                    "question": "Company XYZ has an insurance code of DL.What type of account and credit limit codes does it have ?",
                     "options": [{
                         "option": "PA, CL-50",
                         "isCorrect": "No"

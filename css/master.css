@@ -7096,6 +7096,10 @@ btn-ceb2:active,
   background: linear-gradient(#00c8f3, #0097f3);
   box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.15), 0px 3px 8px 0px rgba(0, 199, 243, 0.3); }
 
+.interaction-tab
+tbody > tr > td {
+  width: 30px; }
+
 @media (max-width: 991px) {
   .navbar-header {
     float: none; }
