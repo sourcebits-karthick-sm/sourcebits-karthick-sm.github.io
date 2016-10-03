@@ -6438,7 +6438,7 @@ html {
   height: 100%; }
 
 body {
-  background-color: #23232b !important;
+  background-color: #fff !important;
   font-family: 'proxima_regular';
   background: url("../images/ceb-background.jpg") no-repeat center center fixed;
   background-size: cover; }
@@ -6584,6 +6584,7 @@ table.time {
 
 .instructions-wrapper {
   width: 100%;
+  background-color: #23232b !important;
   /*    height: 100vh;*/
   /*padding-bottom: 20px;*/ }
   .instructions-wrapper .instructions p {
@@ -7160,8 +7161,8 @@ tbody > tr > td {
     .btn-group-container .btn-group-justified .btn {
       font-size: 14px; }
   .width-500 {
-    padding-left: 5px;
-    padding-right: 5px; }
+    padding-left: 15px;
+    padding-right: 15px; }
   .btn-tab-group {
     padding: 5px; }
   .questions > .row {
