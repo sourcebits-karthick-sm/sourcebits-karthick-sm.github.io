@@ -118,7 +118,7 @@
                         "isCorrect": "No"
                     }]
                 }, {
-                    "question": "Company XYZ has an insurance code of DL.What type of account and credit limit codes does it have ?",
+                    "question": "Company XYZ has an insurance code of DL.What type of account and credit limit codes does it have?",
                     "options": [{
                         "option": "PA, CL-50",
                         "isCorrect": "No"
@@ -136,7 +136,7 @@
                         "isCorrect": "No"
                     }]
                 }, {
-                    "question": "Which of the following series of codes is incorrect ? ",
+                    "question": "Which of the following series of codes is incorrect? ",
                     "options": [{
                         "option": "GA, DLP",
                         "isCorrect": "No"
@@ -154,7 +154,7 @@
                         "isCorrect": "No"
                     }]
                 }, {
-                    "question": "Which of the following statements is true ? ",
+                    "question": "Which of the following statements is true? ",
                     "options": [{
                         "option": "Compared to Gold accounts, Silver accounts have exactly half the overdraft fee.",
                         "isCorrect": "Yes"
@@ -172,7 +172,7 @@
                         "isCorrect": "No"
                     }]
                 }, {
-                    "question": "Which of the following are the correct overdraft fee codes for Silver Gold and Platinum accounts ? ",
+                    "question": "Which of the following are the correct overdraft fee codes for Silver Gold and Platinum accounts? ",
 
                     "options": [{
                         "option": "CL-10, CL-25, CL-50",
