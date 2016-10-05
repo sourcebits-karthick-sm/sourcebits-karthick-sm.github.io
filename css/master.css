@@ -6593,7 +6593,7 @@ table.time {
     line-height: 1.25; }
 
 .add-padding {
-  padding-top: 158px; }
+  padding-top: 115px; }
 
 .info-box:nth-child(2) .info-box-content-wrap {
   border-radius: 4px 4px 0 0; }
@@ -6610,7 +6610,7 @@ h1.section-heading {
 
 h1.section-heading.instruction {
   /*padding-left: 10px;*/
-  padding-top: 10px; }
+  /*padding-top: 10px;*/ }
 
 h1.section-heading.question {
   color: #000000; }
@@ -6750,7 +6750,7 @@ h1.section-heading.question {
   width: 100%;
   background-color: white;
   font-size: 16px;
-  padding: 20px 0 20px;
+  /*padding: 20px 0 20px;*/
   opacity: 1;
   /*position: fixed;*/
   z-index: 999999;
@@ -7164,6 +7164,9 @@ tbody > tr > td {
     padding-right: 0px; }
     .btn-group-container .btn-group-justified .btn {
       font-size: 14px; }
+  .container .info-box {
+    padding-left: 5px;
+    padding-right: 5px; }
   .width-500 {
     padding-left: 15px;
     padding-right: 15px; }
@@ -7396,7 +7399,9 @@ header {
   .exit-button {
     margin-top: 10px; }
   .tablet-margin {
-    margin-top: 8px; } }
+    margin-top: 8px; }
+  .add-padding {
+    padding-top: 137px; } }
 
 @media only screen and (min-device-width: 360px) {
   .tick-img {

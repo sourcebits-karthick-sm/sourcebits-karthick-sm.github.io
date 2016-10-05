@@ -179,18 +179,23 @@ $scope.click = false;
         $scope.click = true;
     }
     $scope.NewTime1 = vm.display;
-
-    $scope.setPadding = function(){
-        
-        var fixedContentHeight = document.getElementById('fixedContent').clientHeight;
-        var addpadding = document.getElementsByClassName('add-padding')[0];
-        addpadding.style.paddingTop = fixedContentHeight + 'px';
-        console.log(fixedContentHeight);
-        // console.log(angular.element(document.getElementById('fixedContent').clientHeight));
-    }
+    $scope.addpadding = document.getElementsByClassName('add-padding')[0];
 
     vm.showNextQuestion = function(answer,option) {
-        $timeout(console.log($('#fixedContent').height()));
+        // console.log($('#fixedContent').height());
+        $scope.$watch(
+                function () {
+                    return $('#fixedContent').height();
+                },
+                function (newValue, oldValue) {
+                    if (newValue != oldValue) {
+                        var addpadding = document.getElementsByClassName('add-padding')[0];
+                        addpadding.style.paddingTop = newValue + 'px';
+                        console.log(newValue);
+                    }
+                }
+            );
+
         // To hide the answers
         vm.showOverlay = false;
             window.scrollTo(0, 0);
