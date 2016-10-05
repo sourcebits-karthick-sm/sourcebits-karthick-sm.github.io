@@ -124,6 +124,22 @@ function questionController($scope, $http, $log, $document, $state,$rootScope,$t
         deviceType();
         $scope.sendSessionId();
         window.scrollTo(0,0);
+
+        $scope.$watch(
+                function () {
+                    return $('#fixedContent').height();
+                },
+                function (newValue, oldValue) {
+                    if (newValue != oldValue) {
+                        var addpadding = document.getElementsByClassName('add-padding')[0];
+                        addpadding.style.paddingTop = newValue + 'px';
+                        console.log(newValue);
+                    }
+                }
+        );
+
+        // var addpadding = document.getElementsByClassName('add-padding')[0];
+        // addpadding.style.paddingTop = $('#fixedContent').height() + 'px';
     };
 
     $scope.sendSessionId = function() {
@@ -179,7 +195,7 @@ $scope.click = false;
         $scope.click = true;
     }
     $scope.NewTime1 = vm.display;
-    $scope.addpadding = document.getElementsByClassName('add-padding')[0];
+
 
     vm.showNextQuestion = function(answer,option) {
         // console.log($('#fixedContent').height());
@@ -194,7 +210,7 @@ $scope.click = false;
                         console.log(newValue);
                     }
                 }
-            );
+        );
 
         // To hide the answers
         vm.showOverlay = false;

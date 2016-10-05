@@ -6593,7 +6593,7 @@ table.time {
     line-height: 1.25; }
 
 .add-padding {
-  padding-top: 115px; }
+  padding-top: 118px; }
 
 .info-box:nth-child(2) .info-box-content-wrap {
   border-radius: 4px 4px 0 0; }
@@ -7401,7 +7401,7 @@ header {
   .tablet-margin {
     margin-top: 8px; }
   .add-padding {
-    padding-top: 137px; } }
+    padding-top: 140px; } }
 
 @media only screen and (min-device-width: 360px) {
   .tick-img {
@@ -7521,7 +7521,9 @@ header {
   .exit-button {
     margin-top: 35px; }
   .tablet-margin {
-    margin-top: 222px; } }
+    margin-top: 222px; }
+  .add-padding {
+    padding-top: 118px; } }
 
 /*-------------------------------------------------
 SMACSS: LAYOUT - SECTION
