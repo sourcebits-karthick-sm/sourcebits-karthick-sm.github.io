@@ -6608,6 +6608,12 @@ h1.section-heading {
   color: #ffffff;
   opacity: .5; }
 
+p.ceb-question {
+  padding-bottom: 10px; }
+
+h1.ques-padding {
+  margin-top: 10px; }
+
 h1.section-heading.instruction {
   /*padding-left: 10px;*/
   /*padding-top: 10px;*/ }
