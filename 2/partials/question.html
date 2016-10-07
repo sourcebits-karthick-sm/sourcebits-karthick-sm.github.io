@@ -11,7 +11,7 @@
                   <p class="info-title">Assessment</p>
                </div>
                <div class="info-box-content-wrap">
-                  <h4>You are about to complete an assessment </h4>
+                  <h4 class="bold-font">You are about to complete an assessment </h4>
                   <p class="heading"> Assessment: </p>
                   <p>Working with information</p>
                   <p class="heading">Time Limit:</p>
@@ -24,7 +24,7 @@
             </div>
             <div class="width-500 info-box">
                <div class="info-bar">
-                  <p class="info-title">FOLLOWING INSTRUCTIONS</p>
+                  <p class="info-title">WORKING WITH INFORMATION</p>
                </div>
                <div class="info-box-content-wrap">
                   Each item contains a question and a set of rules in the form of a calendar, driving directions, filing system, office rules, or guidelines. You are to answer each question based on the set of rules provided. To select your answer, click the associated radio button or text.<BR><BR>
@@ -150,7 +150,7 @@
                   <div>
                      <table class="table ceb-table">
                         <tbody>
-                           <tr>
+                           <tr class="small-screen">
                               <td>SUN</td>
                               <td>MON</td>
                               <td>TUE</td>
@@ -182,7 +182,7 @@
                               <td>12</td>
                               <td>13</td>
                               <td>14</td>
-                              <td>15</td>
+                              <td class="semiBold-font">15</td>
                               <td>16</td>
                               <td>17</td>
                            </tr>
@@ -201,7 +201,7 @@
                               <td>27</td>
                               <td>28</td>
                               <td>29</td>
-                              <td>30</td>
+                              <td class="semiBold-font">30</td>
                               <td></td>
                            </tr>
                         </tbody>
@@ -216,150 +216,19 @@
                      </div>
                   </div>
                </div>
-               <!-- <div class="width-500 type3"  ng-show="!check && count!=21 && !timercheck" ng-class="{'fadein': ques.open}" ng-click="ques.openOptions()">
-                  <h1 class="section-heading instruction">INFORMATION</h1>
-                  <div class="btn-group-container">
-                     <div class="btn-group btn-group-justified">
-                     </div>
-                  </div>
-                  <div ng-if="ques.tab">
-                     <table class="table ceb-table">
-                        <tbody>
-                           <tr>
-                              <td>SUN</td>
-                              <td>MON</td>
-                              <td>TUE</td>
-                              <td>WED</td>
-                              <td>THU</td>
-                              <td>FRI</td>
-                              <td>SAT</td>
-                           </tr>
-                           <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td>1</td>
-                              <td>2</td>
-                              <td>3</td>
-                           </tr>
-                           <tr>
-                              <td>4</td>
-                              <td>5</td>
-                              <td>6</td>
-                              <td>7</td>
-                              <td>8</td>
-                              <td>9</td>
-                              <td>10</td>
-                           </tr>
-                           <tr>
-                              <td>11</td>
-                              <td>12</td>
-                              <td>13</td>
-                              <td>14</td>
-                              <td>15</td>
-                              <td>16</td>
-                              <td>17</td>
-                           </tr>
-                           <tr>
-                              <td>18</td>
-                              <td>19</td>
-                              <td>20</td>
-                              <td>21</td>
-                              <td style="color:#00adee">22</td>
-                              <td>23</td>
-                              <td>24</td>
-                           </tr>
-                           <tr>
-                              <td>25</td>
-                              <td>26</td>
-                              <td>27</td>
-                              <td>28</td>
-                              <td>29</td>
-                              <td>30</td>
-                              <td></td>
-                           </tr>
-                        </tbody>
-                     </table>
-                     <div class="calendar-info">
-                        <p class="semiBold-font">Office Calendar Legend: 456</p>
-                        <p>Dates in Blue are paid holidays<br>
-                           Dates that are bold are paydays<br>
-                           Saturdays and Sundays are weekend days<br>
-                           All days except paid holidays and weekend days are workdays.</br>
-                        </p>
-                     </div>
-                  </div>
-                  <div ng-if="!ques.tab">
-                     <table class="table ceb-table">
-                        <tbody>
-                           <tr>
-                              <td>LY </td>
-                              <td>Late payment dispute</td>
-                           </tr>
-                           <tr>
-                              <td>AB</td>
-                              <td>Account balance inquiry  </td>
-                           </tr>
-                           <tr>
-                              <td>LT</td>
-                              <td>Send late payment notice</td>
-                           </tr>
-                           <tr>
-                              <td>CA</td>
-                              <td>Account closing</td>
-                           </tr>
-                           <tr>
-                              <td>CO</td>
-                              <td>Customer initiated call</td>
-                           </tr>
-                           <tr>
-                              <td>PD</td>
-                              <td>Customer will make payment in 5 days</td>
-                           </tr>
-                           <tr>
-                              <td>AR </td>
-                              <td>
-                                 Account past due courtesy call
-                              </td>
-                           </tr>
-                           <tr>
-                              <td>23</td>
-                              <td>Unanswered telephone call </td>
-                           </tr>
-                           <tr>
-                              <td>45</td>
-                              <td>Telephone number does not exist </td>
-                           </tr>
-                           <tr>
-                              <td>76</td>
-                              <td>Customer change of address </td>
-                           </tr>
-                           <tr>
-                              <td>82</td>
-                              <td>Sales call</td>
-                           </tr>
-                           <tr>
-                              <td>93</td>
-                              <td>Customer requested supervisor</td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </div>
-               </div> -->
                <div class="width-500" ng-if="ques.test.set == 1" ng-show="check && count!=21 && !timercheck || InstructionPage1">
                   <h1 class="section-heading instruction">INFORMATION</h1>
                   <div class="btn-group-container">
                      <div class="airport-info">
                         <div class="calendar-info">
                            <p class="semiBold-font">I-785 Southbound:</p>
-                           Exit at Airport Parkway, exit 2. Turn left at the end of the ramp,<br> and then follow the signs to the Atlanta International Airport. <br><br>
+                           Exit at Airport Parkway, exit 2. Turn left at the end of the ramp, and then follow the signs to the Atlanta International Airport. <br><br>
                            <p class="semiBold-font">I-55/65 Southbound:</p>
-                           Exit at Atlanta Airport, exit 142. Travel on I-65 S approx. 2 miles,<br> and then take exit 53, Airport Parkway/Montgomery. Follow the<br> signs to Atlanta International Airport.<br><br>
+                           Exit at Atlanta Airport, exit 142. Travel on I-65 S approx. 2 miles, and then take exit 53, Airport Parkway/Montgomery. Follow the<br> signs to Atlanta International Airport.<br><br>
                            <p class="semiBold-font">I-65 Northbound:</p>
-                           Exit at Southdale, exit 71. Follow the signs to Atlanta International <br>Airport.<br><br>
+                           Exit at Southdale, exit 71. Follow the signs to Atlanta International Airport.<br><br>
                            <p class="semiBold-font">I-55 Northbound:</p>
-                           Exit at I-785 W, exit 238B. Travel west on I-785 approx. 5 miles,<br> then take exit 61, Atlanta Airport. Follow the signs to Atlanta <br>International Airport.<br><br>
+                           Exit at I-785 W, exit 238B. Travel west on I-785 approx. 5 miles, then take exit 61, Atlanta Airport. Follow the signs to Atlanta <br>International Airport.<br><br>
                            <p class="semiBold-font">I-25 Eastbound:</p>
                            Travel east on I-25 and exit at I-785 S, exit 51A. Follow the I-785 <br>Southbound directions.
                         </div>
@@ -492,10 +361,10 @@
                               <p>All sales employees must work 9am-5pm unless conducting a sales call at a client's office.</p>
                            </li>
                            <li>
-                              <p>A sales employees conducting a sales call at a clients office telecommutes.</p>
+                              <p>All sales employees conducting a sales call at a clients office telecommutes.</p>
                            </li>
                            <li>
-                              <p>ll accounting employees work 9am-5pm except the collection manager who works 7am-3pm.</p>
+                              <p>All accounting employees work 9am-5pm except the collection manager who works 7am-3pm.</p>
                            </li>
                            <li>
                               <p>Production employees work 10am-6pm.</p>
@@ -635,7 +504,7 @@
                         </div>
                      </div>
                      <div class="col-xs-12 options-margin" ng-hide="count==20">
-                        <button class="btn btn-ceb" ng-click="ques.showNextQuestion(ques.answer,ques.answer1)">NEXT</button>
+                        <button class="btn btn-ceb" ng-click="ques.showNextQuestion(ques.answer,ques.answer1);ques.answer='';option.option='';ques.tab=true">NEXT</button>
                      </div>
                      <div class="col-xs-12 options-margin" ng-show="count==20">
                         <button class="btn btn-ceb" ng-click="ques.showNextQuestion()">FINISH</button>
@@ -677,7 +546,7 @@
                   <div ng-if="ques.tab">
                      <table class="table ceb-table">
                         <tbody>
-                           <tr>
+                           <tr class="small-screen">
                               <td>SUN</td>
                               <td>MON</td>
                               <td>TUE</td>
@@ -709,7 +578,7 @@
                               <td>12</td>
                               <td>13</td>
                               <td>14</td>
-                              <td>15</td>
+                              <td class="semiBold-font">15</td>
                               <td>16</td>
                               <td>17</td>
                            </tr>
@@ -728,7 +597,7 @@
                               <td>27</td>
                               <td>28</td>
                               <td>29</td>
-                              <td>30</td>
+                              <td class="semiBold-font">30</td>
                               <td></td>
                            </tr>
                         </tbody>
