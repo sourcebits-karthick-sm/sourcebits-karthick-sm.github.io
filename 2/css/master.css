@@ -7442,6 +7442,9 @@ header {
 p.ceb-question {
   padding-bottom: 10px; }
 
+h1.ques-padding {
+  margin-top: 10px; }
+
 /*==========  Mobile First Method  ==========*/
 /* Custom, iPhone Retina */
 @media only screen and (min-width: 320px) {
