@@ -35,15 +35,16 @@ angular
 // TIMER DEMO
 
 
-function questionController($scope, $http, $log, $document, $state,$rootScope,$timeout,$interval) {
+function questionController($scope, $http, $log, $document, $state,$rootScope) {
+    //console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
     var vm = this;
     vm.open = false;
     vm.tab = true;
     vm.showOverlay = false;
-    vm.showAnswers = false;
-    vm.answersOverlay = function(){
-        vm.showAnswers = true;
-    };
+        vm.showAnswers = false;
+        vm.answersOverlay = function(){
+            vm.showAnswers = true;
+        };
     vm.questionProgressPercent = 0;
     var someElement = angular.element(document.getElementById('sticky'));
     vm.openOptions = function() {
@@ -51,6 +52,7 @@ function questionController($scope, $http, $log, $document, $state,$rootScope,$t
         // return;
 
         vm.open = true;
+
     }
     vm.closeOptions = function() {
 
@@ -58,6 +60,7 @@ function questionController($scope, $http, $log, $document, $state,$rootScope,$t
         // return;
         vm.open = false;
     }
+
 
     $http.get("images/data/testdata.json")
         .then(function(response) {
@@ -88,13 +91,17 @@ function questionController($scope, $http, $log, $document, $state,$rootScope,$t
         $document.find('body').css('background','none');
         $scope.InstructionPage = true;
         $scope.InstructionPage1 = false;
+
+        
+
         window.scrollTo(0, 0);
     };
 
     $scope.exitAssessment = function() {
         $scope.InstructionPage = true;
         $scope.InstructionPage1 = true;
-         window.location = "/";
+        // $state.reload();
+        window.location = "/"
         window.scrollTo(0, 0);
     };
 
@@ -109,7 +116,7 @@ function questionController($scope, $http, $log, $document, $state,$rootScope,$t
         var deviceWidth = window.screen.width;
         if (deviceWidth < 768) {
             $scope.deviceType = "Mobile";
-        } else if (deviceWidth >= 768 && deviceWidth < 992) {
+        } else if (deviceWidth > 768 && deviceWidth < 992) {
             $scope.deviceType = "Tablet";
         } else if (deviceWidth > 992) {
             $scope.deviceType = "PC";
@@ -117,29 +124,25 @@ function questionController($scope, $http, $log, $document, $state,$rootScope,$t
     };
 
     $scope.startEvaluation = function() {
-        // $document.find('body').css('background','none')
+        
         $scope.check = true;
         var timeLimit = 60 * 10;
         startTimer(timeLimit);
         deviceType();
         $scope.sendSessionId();
         window.scrollTo(0,0);
-
         $scope.$watch(
-                function () {
-                    return $('#fixedContent').height();
-                },
-                function (newValue, oldValue) {
-                    if (newValue != oldValue) {
-                        var addpadding = document.getElementsByClassName('add-padding')[0];
-                        addpadding.style.paddingTop = newValue + 'px';
-                        console.log(newValue);
-                    }
-                }
-        );
-
-        // var addpadding = document.getElementsByClassName('add-padding')[0];
-        // addpadding.style.paddingTop = $('#fixedContent').height() + 'px';
+                        function () {
+                            return $('#fixedContent').height();
+                        },
+                        function (newValue, oldValue) {
+                            if (newValue != oldValue) {
+                                var addpadding = document.getElementsByClassName('add-padding')[0];
+                                addpadding.style.paddingTop = newValue + 'px';
+                                console.log(newValue);
+                            }
+                        }
+                );
     };
 
     $scope.sendSessionId = function() {
@@ -150,20 +153,20 @@ function questionController($scope, $http, $log, $document, $state,$rootScope,$t
         };
         // console.log(sessionData);
 
-            // $http({
-            // method: 'POST',
-            // headers: { 'Content-type': 'application/json','charset':'utf-8'},
-            // data: {
-            // "SessionId": $scope.sessionId,
-            // "DeviceName": $scope.deviceType
-            // },
-            // url: 'http://192.168.10.213/CEBAPI/api/UserService/Create'
-            // }).success(function(res){
+        $http({
+            method: 'POST',
+            headers: { 'Content-type': 'application/json','charset':'utf-8'},
+            data: {
+            "SessionId": $scope.sessionId,
+            "DeviceName": $scope.deviceType
+            },
+            url: 'http://61.12.92.90/CEBAPI/api/UserService/Create'
+            }).success(function(res){
                 
-            // })
-            // .error(function(err){
-            //     console.log("error",err);
-            // });
+            })
+            .error(function(err){
+                console.log("error",err);
+            });
     };
 
     $scope.count = 1;
@@ -171,6 +174,8 @@ function questionController($scope, $http, $log, $document, $state,$rootScope,$t
     function endAssessment() {
         $scope.count += 1;
         $scope.InstructionPage1 = false;
+
+       $document.find('body').css('background','../images/ceb-background.jpg')
     }
     function format(s) {
         var ms = s % 1000;
@@ -191,41 +196,32 @@ function questionController($scope, $http, $log, $document, $state,$rootScope,$t
     };
 $scope.click = false;
    vm.isClick = function(){
-        // $document.find('body').css('background','none')
+        
         $scope.click = true;
     }
     $scope.NewTime1 = vm.display;
-
-
+    
     vm.showNextQuestion = function(answer,option) {
-        // console.log($('#fixedContent').height());
-        $scope.$watch(
-                function () {
-                    return $('#fixedContent').height();
-                },
-                function (newValue, oldValue) {
-                    if (newValue != oldValue) {
-                        var addpadding = document.getElementsByClassName('add-padding')[0];
-                        addpadding.style.paddingTop = newValue + 'px';
-                        console.log(newValue);
-                    }
-                }
-        );
+            $scope.$watch(
+                            function () {
+                                return $('#fixedContent').height();
+                            },
+                            function (newValue, oldValue) {
+                                if (newValue != oldValue) {
+                                    var addpadding = document.getElementsByClassName('add-padding')[0];
+                                    addpadding.style.paddingTop = newValue + 'px';
+                                    console.log(newValue);
+                                }
+                            }
+                    );
 
-        // To hide the answers
-        vm.showOverlay = false;
             window.scrollTo(0, 0);
             if($scope.count>19){
                 $document.find('body').css('background','');
                 console.log("Add image on complete ");
             }
-            
-            // if($scope.check && $scope.count!=21 && !$scope.timercheck){
-            //         $document.find('body').css('background','none')
-            //         console.log(":sdvkjasdbvalskjdvbaljshvbajkhsdv");
-            //     }
-
-            // console.log("when not clicked "+ $scope.click);
+             vm.openOptions(); 
+           
             //$scope.ans = answer;
             if($scope.click !=true) 
             {
@@ -290,40 +286,37 @@ $scope.click = false;
                 "Duration": $scope.finaltime,
                 "User_SessionId": $scope.sessionId
             };
-            // $http({
-            // method: 'POST',
-            // headers: { 'Content-type': 'application/json','charset':'utf-8'},
-            // data: {
-            // "ItemType": $scope.ItemType,
-            //     "QuestionNumber": $scope.QuestionNumber,
-            //     "Answer": $scope.Answer, 
-            //     "IsRight": $scope.IsRight,
-            //     "Duration": $scope.finaltime,
-            //     "User_SessionId": $scope.sessionId
-            // },
-            // url: 'http://192.168.10.213/CEBAPI/api/AnswerService/CreateDWINFO'
-            // }).success(function(res){
-            //     console.log("success",res);
-            // })
-            // .error(function(err){
-            //     console.log("error",err);
-            // });
+            $http({
+            method: 'POST',
+            headers: { 'Content-type': 'application/json','charset':'utf-8'},
+            data: {
+            "ItemType": $scope.ItemType,
+                "QuestionNumber": $scope.QuestionNumber,
+                "Answer": $scope.Answer, 
+                "IsRight": $scope.IsRight,
+                "Duration": $scope.finaltime,
+                "User_SessionId": $scope.sessionId
+            },
+            url: 'http://61.12.92.90/CEBAPI/api/AnswerService/CreateFI'
+            }).success(function(res){
+                console.log("success",res);
+            })
+            .error(function(err){
+                console.log("error",err);
+            });
 
              
 
         endAssessment();
         $scope.isButtonClicked = true;
         if (vm.currnetQuestionIndex < vm.sectionQuestions - 1) {
-            
             vm.currnetQuestionIndex += 1;
             vm.test.currentQuestion = vm.test.questions[vm.currnetQuestionIndex];
             vm.currentQuestionNum += 1;
-            // $timeout(vm.setPadding(),5000)
 
         } else if ((vm.currnetQuestionIndex < vm.sectionQuestions - 1) || vm.test.set < vm.setsMaxIndex
 
         ) {
-
             vm.test.set += 1;
             vm.test.questions = vm.test.sets[vm.test.set].questions;
             vm.test.currentQuestion = vm.test.questions[0];
@@ -331,19 +324,14 @@ $scope.click = false;
             vm.currnetQuestionIndex = 0;
             vm.currentQuestionNum += 1;
             calcQuestioPercent();
-            // $timeout(vm.setPadding(),5000)
 
         }
         calcQuestioPercent();
-        // vm.setPadding();
         $document.scrollToElementAnimated(someElement);
         $scope.click =false ;
-        // $timeout(vm.setPadding(),1000);
-
     }
 
     function calcQuestioPercent() {
-        
         (vm.currentQuestionNum == vm.test.totalQuestions) ? vm.questionProgressPercent = 100: vm.questionProgressPercent = ((vm.currentQuestionNum - 1) * 100) / vm.test.totalQuestions;
     }
 
