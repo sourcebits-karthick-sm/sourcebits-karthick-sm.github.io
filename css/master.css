@@ -6440,7 +6440,7 @@ html {
 body {
   background-color: #fff !important;
   font-family: 'proxima_regular';
-  background: url("../images/ceb-background.jpg") no-repeat center center fixed;
+  background: url("../images/ceb-background.jpg") no-repeat center center fixed #fff;
   background-size: cover; }
 
 header,
@@ -6493,8 +6493,8 @@ footer {
   font-family: 'proxima_regular';
   background-color: #E6E6E6;
   /*-webkit-box-shadow: 0px -1px 0px 0px rgb(255, 255, 255), 0px 0px 0px 0px rgba(0, 0, 0, 0.08);
-        -moz-box-shadow: 0px -1px 0px 0px rgb(255, 255, 255), 0px 0px 0px 0px rgba(0, 0, 0, 0.08);
-        box-shadow: 0px -1px 0px 0px rgb(255, 255, 255), 0px 0px 0px 0px rgba(0, 0, 0, 0.08);*/ }
+         -moz-box-shadow: 0px -1px 0px 0px rgb(255, 255, 255), 0px 0px 0px 0px rgba(0, 0, 0, 0.08);
+         box-shadow: 0px -1px 0px 0px rgb(255, 255, 255), 0px 0px 0px 0px rgba(0, 0, 0, 0.08);*/ }
 
 .timer-bar .progress-bar {
   box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.5), 0px 0px 0px 0px rgba(0, 0, 0, 0.08);
@@ -6608,15 +6608,10 @@ h1.section-heading {
   color: #ffffff;
   opacity: .5; }
 
-p.ceb-question {
-  padding-bottom: 10px; }
-
-h1.ques-padding {
-  margin-top: 10px; }
-
 h1.section-heading.instruction {
-  /*padding-left: 10px;*/
-  /*padding-top: 10px;*/ }
+  /*padding-left: 10px;
+    padding-top: 10px;*/
+  /*margin-top:10px;*/ }
 
 h1.section-heading.question {
   color: #000000; }
@@ -6652,13 +6647,12 @@ h1.section-heading.question {
 /*CEB TABLE */
 .table-100 {
   margin-top: -30px;
-  /*width: 500px;*/
-  /*//height: 530px;*/
-  border-radius: 0px 0px 4px 4px;
-  background-color: #23232b;
+  /* width: 500px; */
+  border-radius: 4px 4px 4px 4px;
+  /* background-color: #23232b; */
   padding: 0px 10px 4px 10px;
   object-fit: contain;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */ }
   .table-100 h1.section-heading.instruction {
     padding-top: 20px; }
 
@@ -6687,9 +6681,22 @@ h1.section-heading.question {
     color: #FBFBFB;
     padding: 4px 10px; }
 
-.type3 table thead > tr > th:nth-child(even),
-.type3 table tbody > tr:nth-child(odd) > td:nth-child(even) {
-  width: 335px; }
+.calender {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); }
+
+.office-hour {
+  color: #fff; }
+
+.airport-info {
+  color: #fff;
+  /*padding-left:10px;*/
+  /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/ }
+
+.table-format {
+  width: 200px; }
 
 .type4 table thead > tr > th:nth-child(even),
 .type4 table tbody > tr:nth-child(odd) > td:nth-child(even) {
@@ -6707,7 +6714,9 @@ h1.section-heading.question {
   width: 100%;
   background-color: white;
   padding-bottom: 50px;
-  font-size: 16px; }
+  font-size: 16px;
+  overflow: visible;
+  bottom: 0; }
 
 .white-div-answers {
   z-index: 999;
@@ -6895,8 +6904,9 @@ h1.section-heading.question {
   padding-right: 10px;
   /*padding-top: 12px;*/
   /*//display: table-cell;*/
-  display: -ms-flexbox;
-  display: flex;
+  -ms-flex-align: center;
+  display: -webkit-flex;
+  /* NEW */
   -ms-flex-align: center;
   align-items: center;
   vertical-align: middle;
@@ -6906,6 +6916,14 @@ h1.section-heading.question {
   .ceb-options .option-text {
     float: left;
     width: 85%;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    display: -webkit-flex;
+    /* NEW */
+    vertical-align: middle;
+    height: auto;
+    line-height: normal;
     padding-top: 10px;
     padding-bottom: 10px; }
 
@@ -7166,9 +7184,6 @@ tbody > tr > td {
   .customer-interaction
 tbody > tr > td {
     min-width: 150px; }
-  .type3 table thead > tr > th:nth-child(even),
-  .type3 table tbody > tr:nth-child(odd) > td:nth-child(even) {
-    width: 200px; }
   .btn-group-justified {
     display: initial; }
   .btn-group-container {
@@ -7216,7 +7231,7 @@ input[type=checkbox]:not(old):checked + label {
   background-position: 0 -24px; }
 
 input[type=radio]:not(old):checked + label {
-  background: url("../images/answerRadioSelected.png") no-repeat 0 0; }
+  background: url("/images/answerRadioSelected.png") no-repeat 0 0; }
 
 .ceb-question-progressbar {
   z-index: 9999;
@@ -7299,10 +7314,12 @@ header {
 
 .info-box {
   margin: 10px auto;
-  font-size: 16px; }
+  font-size: 16px;
+  padding-top: 0px; }
 
 .padding-bottom-40 {
-  padding-bottom: 40px; }
+  padding-bottom: 40px;
+  padding-top: 25px; }
 
 .info-box h4 {
   color: #0e406a;
@@ -7359,7 +7376,7 @@ header {
   margin-bottom: 0px; }
 
 .info-box:nth-child(2) .info-box-content-wrap {
-  border-radius: 0; }
+  border-radius: 0px 0px 5px 5px; }
 
 .info-box:last-child .info-box-content-wrap {
   padding: 15px 15px 20px 15px;
@@ -7382,6 +7399,12 @@ header {
 .info-box {
   margin: 15px auto 10px; }
 
+.info-box {
+  margin: 15px auto 10px; }
+
+.proxima-bold {
+  font-family: 'proxima_bold'; }
+
 .bold-font {
   font-family: 'proxima_semibold'; }
 
@@ -7396,6 +7419,29 @@ header {
 .stop-overflow {
   overflow-y: hidden; }
 
+.instructions-wrapper .calendar-info {
+  margin: 20px 0 20px; }
+
+.instructions-wrapper .calendar-info p {
+  font-family: 'proxima_regular';
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  line-height: 23px; }
+
+.instructions-wrapper .calendar-info p.semiBold-font {
+  font-family: 'proxima_semibold';
+  font-size: 16px; }
+
+.instructions-wrapper .calendar-info ul {
+  list-style: inherit;
+  color: #fff;
+  list-style-position: outside;
+  padding-left: 30px; }
+
+p.ceb-question {
+  padding-bottom: 10px; }
+
 /*==========  Mobile First Method  ==========*/
 /* Custom, iPhone Retina */
 @media only screen and (min-width: 320px) {
@@ -7407,15 +7453,21 @@ header {
     margin-right: auto;
     height: 180px;
     width: 180px;
-    margin-top: 30px; }
+    margin-top: 10px; }
   .exit-button {
     margin-top: 10px; }
   .tablet-margin {
     margin-top: 8px; }
   .add-padding {
-    padding-top: 140px; }
+    padding-top: 96px; }
   .sample-instruct-wrapper {
-    padding-top: 102px; } }
+    padding-top: 106px; }
+  .table {
+    table-layout: fixed; }
+  .small-screen td {
+    padding: 5px 4px 8px 4px !important;
+    font-size: 15px;
+    text-align: center; } }
 
 @media only screen and (min-device-width: 360px) {
   .tick-img {
@@ -7504,7 +7556,7 @@ header {
     background: url("../images/ceb-background.jpg") no-repeat center center fixed;
     background-size: cover; }
   .sample-instruct-wrapper {
-    padding-top: 118px; } }
+    padding-top: 96px; } }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width: 992px) {
