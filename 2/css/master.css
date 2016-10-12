@@ -7471,7 +7471,9 @@ h1.ques-padding {
   .small-screen td {
     padding: 5px 4px 8px 4px !important;
     font-size: 15px;
-    text-align: center; } }
+    text-align: center; }
+  th.fixed-80 {
+    width: 72px; } }
 
 @media only screen and (min-device-width: 360px) {
   .tick-img {
