@@ -217,7 +217,7 @@ h1.section-heading.question {
 .btn-group-container .instruction-heading {
   font-family: 'proxima_semibold';
   font-size: 16px;
-  font-weight: 600;
+  font-weight: normal;
   color: #ffffff; }
 
 .btn-tab {
@@ -255,6 +255,7 @@ h1.section-heading.question {
   margin-top: 10px; }
   .table thead > tr {
     font-family: 'proxima_semibold';
+    font-weight: normal;
     background-color: #6F6F74; }
     .table thead > tr th:nth-child(even) {
       background-color: #76767B; }
@@ -283,7 +284,9 @@ h1.section-heading.question {
 .type4 table thead > tr > th:nth-child(even),
 .type4 table tbody > tr:nth-child(odd) > td:nth-child(even) {
   width: 100px; }
-
+.table th{
+  font-weight: normal;
+}
 @media screen and (max-width: 768px) {
   .table-responsive {
     border: none; } }
