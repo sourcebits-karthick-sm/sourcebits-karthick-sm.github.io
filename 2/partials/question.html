@@ -31,7 +31,7 @@
                   This is a timed test so you should work quickly and accurately. You may also change an answer before moving to the next question by selecting another answer.
                   <BR><BR>
                   It is possible that you may not finish this test, but do not guess to increase the number of questions that you answer. There is a penalty for random guessing.<BR><BR>
-                  You will be given an opportunity to practice answering questions with an example question. This example test will help you become familiar with the test format and give you practice in using the mouse to select your answers.
+                  You will be given an opportunity to practice answering questions with an example question. This example test will help you become familiar with the test format and give you practice in selecting your answers.
                </div>
             </div>
          </div>
@@ -255,8 +255,8 @@
                               <div class="table-format">
                                  <th>Amount</th>
                               </div>
-                              <th>Name</th>
-                              <th>Drawer</th>
+                              <th class="fixed-80">Name</th>
+                              <th class="fixed-80">Drawer</th>
                            </tr>
                         </thead>
                         <tbody>
@@ -543,73 +543,50 @@
                      <div class="btn-group btn-group-justified">
                      </div>
                   </div>
-                  <div ng-if="ques.tab">
-                     <table class="table ceb-table">
+                  <div ng-if="ques.tab" class="airport-info">
+                     <table >
                         <tbody>
-                           <tr class="small-screen">
-                              <td>SUN</td>
-                              <td>MON</td>
-                              <td>TUE</td>
-                              <td>WED</td>
-                              <td>THU</td>
-                              <td>FRI</td>
-                              <td>SAT</td>
+                           Purchase orders are filed according to amount and company name using the system below. All closed puchased orders have a $0 balance. Company names that begin with a number are filed in drawer 2 or 4 according to the purchase order amount.
+                        </tbody>
+                     </table>
+                     <table class="table ceb-table">
+                        <thead>
+                           <tr>
+                              <div class="table-format">
+                                 <th>Amount</th>
+                              </div>
+                              <th class="fixed-80">Name</th>
+                              <th class="fixed-80">Drawer</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>$0</td>
+                              <td>A-Z</td>
+                              <td>1</td>
                            </tr>
                            <tr>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                              <td>1</td>
+                              <td>$0.01 - $5,000</td>
+                              <td>A-M</td>
                               <td>2</td>
+                           </tr>
+                           <tr>
+                              <td>$0.01 - $5,000</td>
+                              <td>N-Z</td>
                               <td>3</td>
                            </tr>
                            <tr>
+                              <td>$5,000.01 and up</td>
+                              <td>A-M</td>
                               <td>4</td>
+                           </tr>
+                           <tr>
+                              <td>$5,000.01 and up</td>
+                              <td>N-Z</td>
                               <td>5</td>
-                              <td>6</td>
-                              <td>7</td>
-                              <td>8</td>
-                              <td>9</td>
-                              <td>10</td>
-                           </tr>
-                           <tr>
-                              <td>11</td>
-                              <td>12</td>
-                              <td>13</td>
-                              <td>14</td>
-                              <td class="proxima-bold">15</td>
-                              <td>16</td>
-                              <td>17</td>
-                           </tr>
-                           <tr>
-                              <td>18</td>
-                              <td>19</td>
-                              <td>20</td>
-                              <td>21</td>
-                              <td style="color:#00adee">22</td>
-                              <td>23</td>
-                              <td>24</td>
-                           </tr>
-                           <tr>
-                              <td>25</td>
-                              <td>26</td>
-                              <td>27</td>
-                              <td>28</td>
-                              <td>29</td>
-                              <td class="proxima-bold">30</td>
-                              <td></td>
                            </tr>
                         </tbody>
                      </table>
-                     <div class="calendar-info">
-                        <p class="semiBold-font">Office Calendar Legend:</p>
-                        <p>Dates in Blue are paid holidays<br>
-                           Dates that are bold are paydays<br>
-                           Saturdays and Sundays are weekend days<br>
-                           All days except paid holidays and weekend days are workdays.</br>
-                        </p>
-                     </div>
                   </div>
                   <div ng-if="!ques.tab">
                      <table class="table ceb-table">
@@ -694,17 +671,17 @@
                            Study the information above and select an answer to the sample question.
                         </p>
                      </div>
-                     <div class="output2" ng-show="ques.answer1==3">
+                     <div class="output2" ng-show="ques.answer1=='Allied Systems - $5,000'">
                         <hr>
                         You have chosen the correct answer.
                         <hr>
                         <div>Click the Start Evaluation Button to begin the assessment. </div>
                      </div>
-                     <div class="output3" ng-show="ques.answer1!=3 && ques.answer1!=null">
+                     <div class="output3" ng-show="ques.answer1!='Allied Systems - $5,000' && ques.answer1!=null">
                         <hr>
                         You have chosen an incorrect answer.
-                        <div>The correct answer to Sample Question 2 is</div>
-                        <div class="right-option">3.</div>
+                        <div>The correct answer to Sample Question is</div>
+                        <div class="right-option">Allied Systems - $5,000.</div>
                         <hr>
                         <div>Click the Start Evaluation Button to begin the assessment. </div>
                      </div>
@@ -740,7 +717,7 @@
                </div>
                <div class="info-box-content-wrap">
                   <p>
-                     Click “Start Sample Question” to be taken to a sample question to help get you more familiar with the format before starting.
+                     Press “Start Sample Question” to be taken to a sample question to help get you more familiar with the format before starting.
                   </p>
                   <div class="col-xs-14">
                      <button class="btn btn-ceb" ng-click="startInstruction()">START EXAMPLE QUESTION</button>

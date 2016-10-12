@@ -6441,7 +6441,8 @@ body {
   background-color: #fff !important;
   font-family: 'proxima_regular';
   background: url("../images/ceb-background.jpg") no-repeat center center fixed #fff;
-  background-size: cover; }
+  background-size: cover;
+  -webkit-font-smoothing: antialiased; }
 
 header,
 footer {
@@ -7484,6 +7485,10 @@ h1.ques-padding {
     margin-top: 55px; } }
 
 @media only screen and (min-width: 375px) {
+  table {
+    table-layout: fixed; }
+  th.fixed-80 {
+    width: 80px; }
   .white-div-answers {
     height: auto; }
   .tick-img {
@@ -7559,7 +7564,7 @@ h1.ques-padding {
     background: url("../images/ceb-background.jpg") no-repeat center center fixed;
     background-size: cover; }
   .sample-instruct-wrapper {
-    padding-top: 96px; } }
+    padding-top: 82px; } }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width: 992px) {
