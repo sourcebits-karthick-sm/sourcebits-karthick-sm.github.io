@@ -126,7 +126,7 @@ function questionController($scope, $http, $log, $document, $state,$rootScope) {
     $scope.startEvaluation = function() {
         
         $scope.check = true;
-        var timeLimit = 60 * 10;
+        var timeLimit = 1 * 10;
         startTimer(timeLimit);
         deviceType();
         $scope.sendSessionId();

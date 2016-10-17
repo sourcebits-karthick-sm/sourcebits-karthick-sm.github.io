@@ -6440,7 +6440,7 @@ html {
 body {
   background-color: #fff !important;
   font-family: 'proxima_regular';
-  background: url("../images/ceb-background.jpg") no-repeat center center fixed #fff;
+  background: url("/images/ceb-background.jpg") no-repeat center center fixed #fff;
   background-size: cover;
   -webkit-font-smoothing: antialiased; }
 
@@ -6513,7 +6513,7 @@ table.time {
   table.time .fix {
     text-align: center;
     width: 150px;
-    background-image: url(../images/timerLeft.png), url(../images/timerRight.png);
+    background-image: url(/images/timerLeft.png), url(/images/timerRight.png);
     background-position: left bottom, right bottom;
     background-repeat: no-repeat, no-repeat; }
     table.time .fix img {
@@ -6805,7 +6805,7 @@ h1.section-heading.question {
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2); }
 
 .show-answer-overlay span {
-  background: url(../images/overlay-down.png) no-repeat;
+  background: url(/images/overlay-down.png) no-repeat;
   background-size: 36px 25px;
   position: absolute;
   z-index: 9999;
@@ -6830,7 +6830,7 @@ h1.section-heading.question {
   border: 1px solid #f3f3f3; }
 
 .hide-answer-overlay span {
-  background: url(../images/overlay-top.png) no-repeat;
+  background: url(/images/overlay-top.png) no-repeat;
   background-size: 36px 25px;
   position: absolute;
   z-index: 9999;
@@ -7225,7 +7225,7 @@ input[type=radio]:not(old) + label {
   position: relative;
   margin-left: 40px;
   padding-left: 28px;
-  background: url("../images/answerRadioNormal.png") no-repeat 0 0;
+  background: url("/images/answerRadioNormal.png") no-repeat 0 0;
   line-height: 24px; }
 
 input[type=checkbox]:not(old):checked + label {
@@ -7310,7 +7310,7 @@ header {
 
 /* Instruction & Exit Page */
 .ceb-background {
-  /* background:url('../images/ceb-background.jpg') no-repeat center center fixed;
+  /* background:url('/images/ceb-background.jpg') no-repeat center center fixed;
     background-size: cover;*/ }
 
 .info-box {
@@ -7461,7 +7461,7 @@ h1.ques-padding {
   .exit-button {
     margin-top: 10px; }
   .tablet-margin {
-    margin-top: 8px; }
+    margin-top: 20px; }
   .add-padding {
     padding-top: 96px; }
   .sample-instruct-wrapper {
@@ -7484,7 +7484,7 @@ h1.ques-padding {
     width: 180px;
     margin-top: 40px; }
   .tablet-margin {
-    margin-top: 55px; } }
+    margin-top: 20px; } }
 
 @media only screen and (min-width: 375px) {
   table {
@@ -7503,7 +7503,7 @@ h1.ques-padding {
   .exit-button {
     margin-top: 35px; }
   .tablet-margin {
-    margin-top: 60px; } }
+    margin-top: 20px; } }
 
 @media only screen and (min-width: 425px) {
   .white-div-answers {
@@ -7518,7 +7518,7 @@ h1.ques-padding {
   .exit-button {
     margin-top: 35px; }
   .tablet-margin {
-    margin-top: 60px; } }
+    margin-top: 20px; } }
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width: 470px) {
@@ -7539,7 +7539,7 @@ h1.ques-padding {
   .question-heading-group {
     padding: 0; }
   .tablet-margin {
-    margin-top: 175px; } }
+    margin-top: 20px; } }
 
 @media only screen and (min-device-width: 600px) and (max-device-width: 650px) {
   .tick-img {
@@ -7561,9 +7561,9 @@ h1.ques-padding {
   .exit-button {
     margin-top: 35px; }
   .tablet-margin {
-    margin-top: 222px; }
+    margin-top: 20px; }
   body {
-    background: url("../images/ceb-background.jpg") no-repeat center center fixed;
+    background: url("/images/ceb-background.jpg") no-repeat center center fixed;
     background-size: cover; }
   .sample-instruct-wrapper {
     padding-top: 82px; } }
@@ -7601,7 +7601,7 @@ h1.ques-padding {
   .exit-button {
     margin-top: 35px; }
   .tablet-margin {
-    margin-top: 222px; }
+    margin-top: 20px; }
   .add-padding {
     padding-top: 118px; }
   .sample-instruct-wrapper {
